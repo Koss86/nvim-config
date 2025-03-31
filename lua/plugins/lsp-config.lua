@@ -19,6 +19,7 @@ return {
       require("mason-lspconfig").setup({
         ensure_installed = {
           "lua_ls",
+          "clangd",
           "ols",
         }
       })
@@ -29,6 +30,7 @@ return {
     config = function()
       local lspconfig = require('lspconfig')
       lspconfig.lua_ls.setup({})
+      lspconfig.clangd.setup({})
       lspconfig.ols.setup({})
       vim.keymap.set('n', 'K', vim.lsp.buf.hover, {})
       vim.keymap.set('n', 'gd', vim.lsp.buf.definition, {})
