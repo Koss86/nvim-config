@@ -5,8 +5,8 @@ return {
   opts = {
     style = "night",
     styles = {
-	  comments = { italic = false },
-	  keywords = { italic = true },
+      comments = { italic = false },
+      keywords = { italic = true },
     },
     cache = true,
   },
