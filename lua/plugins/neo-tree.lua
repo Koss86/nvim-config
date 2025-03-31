@@ -22,6 +22,6 @@ return {
       },
     },
   },
-  -- Remap Neotree cmd to alt-e to toggle on/off.
+  -- Remap Neotree cmd to toggle on/off.
   vim.keymap.set('n', '<leader>e', '<Cmd>Neotree toggle<CR>')
 }
