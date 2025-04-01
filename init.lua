@@ -8,7 +8,7 @@ vim.schedule(function()
 end)
 
 vim.opt.mouse = 'a'
-vim.opt.showmode = false 
+vim.opt.showmode = false
 vim.opt.number = true
 vim.opt.relativenumber = true
 vim.g.have_nerd_font = true
