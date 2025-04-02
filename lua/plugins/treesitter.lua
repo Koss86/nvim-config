@@ -1,8 +1,7 @@
 return {
   "nvim-treesitter/nvim-treesitter",
   opts = {
-    ensure_installed = { "c", "lua", },
-    sync_install = false,
+    auto_install = true,
     highlight = { enabled = true },
     indent = { enable = true },
   },
