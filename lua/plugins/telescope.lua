@@ -1,4 +1,5 @@
 return {
+  {
     'nvim-telescope/telescope.nvim', branch = '0.1.x',
     dependencies = { 'nvim-lua/plenary.nvim' },
 
@@ -9,4 +10,20 @@ return {
       vim.keymap.set('n', '<leader>fb', builtin.buffers, { desc = 'Telescope buffers' })
       vim.keymap.set('n', '<leader>fh', builtin.help_tags, { desc = 'Telescope help tags' })
     end
+  },
+  {
+    'nvim-telescope/telescope-ui-select.nvim',
+    opts = {
+      extensions = {
+        ["ui-select"] = {
+          require("telescope.themes").get_dropdown {
+
+          }
+        }
+      }
+    },
+    load = function()
+      require("telescope").load_extenstion("ui-select")
+    end
+  }
 }
