@@ -54,5 +54,7 @@ vim.api.nvim_create_autocmd('TextYankPost', {
     vim.highlight.on_yank()
   end,
 })
-print "Welcome to NeoVim!\nKeep up the great work!"
+print "Welcome to NeoVim.\nKeep up the great work!"
 require("lazy.lazy")
+-- Load color scheme
+vim.cmd[[colorscheme tokyonight]]
