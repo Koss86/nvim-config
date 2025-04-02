@@ -3,7 +3,7 @@ return {
   lazy = false,
   priority = 1000,
   opts = {
-    style = "moon",
+    style = "night",
     styles = {
       comments = { italic = false },
       keywords = { italic = true },
