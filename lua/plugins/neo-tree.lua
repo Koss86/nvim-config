@@ -14,5 +14,5 @@ return {
       -- fill any relevant options here
     },
   },
-  vim.keymap.set('n' , '<leader>e', ':Neotree toggle<CR>', {} )
+  vim.keymap.set('n' , '<leader>e', ':Neotree toggle<cr>', {} )
 }

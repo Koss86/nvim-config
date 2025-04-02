@@ -2,14 +2,18 @@ vim.g.have_nerd_font = true
 vim.opt.number = true
 vim.opt.relativenumber = true
 vim.opt.mouse = 'a'
-vim.opt.showmode = true
+vim.opt.showmode = false 
+
+vim.opt.expandtab = true
+vim.opt.tabstop = 2
+vim.optsofttabstop = 2
 vim.opt.shiftwidth = 2
 
 vim.schedule(function()
   vim.opt.clipboard = 'unnamedplus'
 end)
 
---vim.opt.breakindent = true
+vim.opt.breakindent = true
 vim.opt.undofile = true
 vim.opt.ignorecase = true
 vim.opt.smartcase = true
