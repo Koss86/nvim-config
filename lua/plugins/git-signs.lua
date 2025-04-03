@@ -3,7 +3,7 @@ return {
   config = function()
     local gitsigns = require("gitsigns")
     require("gitsigns").setup({
-      vim.keymap.set("n", "<leader>hd", gitsigns.diffthis, {})
+      vim.keymap.set("n", "<leader>gd", gitsigns.diffthis, {})
     })
   end,
 }
