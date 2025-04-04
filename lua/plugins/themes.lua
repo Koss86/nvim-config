@@ -3,13 +3,13 @@ return {
   {
     "projekt0n/github-nvim-theme",
     name = "github-theme",
-    lazy = true,
+    lazy = false,
     priority = 1000,
     config = function()
       vim.cmd("colorscheme github_dark_dimmed")
     end,
   },
-  -- Needs further work to ensure the themes below will load this way.
+  --[[
   {
     "rebelot/kanagawa.nvim",
     lazy = true,
@@ -23,9 +23,12 @@ return {
       vim.cmd("colorscheme kanagawa")
     end,
   },
+  ]]
+
+  --[[
   {
     "folke/tokyonight.nvim",
-    lazy = false,
+    lazy = true,
     priority = 1000,
     config = function()
       style = "night"
@@ -38,7 +41,8 @@ return {
         colors.hint = colors.orange
         colors.error = "#ff0000"
       end
-      vim.cmd([[colorscheme tokyonight]])
+      vim.cmd("colorscheme tokyonight")
     end,
   },
+]]
 }
