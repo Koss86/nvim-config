@@ -66,4 +66,5 @@ vim.api.nvim_create_autocmd('TextYankPost', {
 })
 require("config.lazy")
 -- Load color scheme
-vim.cmd[[colorscheme tokyonight]]
+--vim.cmd[[colorscheme tokyonight]]
+vim.cmd("colorscheme kanagawa")
