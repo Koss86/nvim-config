@@ -1,6 +1,6 @@
 {
     "diagnostics.globals": [
-        "capabilities",
-        "vim"
+        "vim",
+        "capabilities"
     ]
 }
