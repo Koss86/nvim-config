@@ -1,6 +1,7 @@
 return {
   {
     "projekt0n/github-nvim-theme",
+    enabled = true,
     name = "github-theme",
     lazy = false,
     priority = 1000,
@@ -8,6 +9,7 @@ return {
       vim.cmd('colorscheme github_dark_dimmed')
     end
   },
+  -- Needs further work to ensure the themes below will load this way.
   {
     "rebelot/kanagawa.nvim",
     opts = {
