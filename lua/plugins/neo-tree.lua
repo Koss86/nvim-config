@@ -8,10 +8,12 @@ return {
     lazy = false, -- neo-tree will lazily load itself
     ---@module "neo-tree"
 ---@diagnostic disable-next-line: undefined-doc-name
-    ---@type neotree.Config?
-    opts = {
-      -- fill any relevant options here
-    },
+   ---@type neotree.Config?
+    config = function ()
+      require("neo-tree").setup({
+      window = { { width = 10 }, },
+    })
+    end
   },
   vim.keymap.set('n' , '<leader>t', '<cmd>Neotree toggle<cr>', {} )
 }
