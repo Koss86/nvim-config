@@ -9,14 +9,7 @@ return {
     },
     lazy = false,
     opts = {
-      default_component_configs = {
-        containter = { 
-          width = "3%",
-        },
-        window = {
-          width = "10%",
-        }
-      }    
+      window = { width = 30, height = 15, },
     },
   vim.keymap.set('n' , '<leader>t', ':Neotree toggle<cr>', {} )  },
 }
