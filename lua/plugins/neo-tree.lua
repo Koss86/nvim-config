@@ -4,7 +4,7 @@ return {
     branch = "v3.x",
     lazy = false,
     opts = {
-      window = { width = 25, height = 15, },
+      window = { width = 27, height = 15, },
     },
-  vim.keymap.set('n' , '<leader>t', ':Neotree toggle<cr>', {} )  },
+  vim.keymap.set('n' , '<leader>f', ':Neotree toggle<cr>', {} )  },
 }
