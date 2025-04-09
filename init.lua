@@ -1,23 +1,16 @@
+require("config.lazy")
 vim.g.have_nerd_font = true
 vim.opt.number = true
 vim.opt.relativenumber = true
 vim.opt.mouse = 'a'
 vim.opt.showmode = false
-
-vim.opt.expandtab = true
-vim.opt.tabstop = 2
-vim.optsofttabstop = 2
-vim.opt.shiftwidth = 2
-
+vim.opt.shiftwidth = 4
 vim.schedule(function()
   vim.opt.clipboard = 'unnamedplus'
 end)
-
 vim.opt.updatetime = 250
 vim.opt.timeoutlen = 300
-
 vim.opt.splitbelow = true
-
 vim.opt.wrap = false
 vim.opt.breakindent = true
 vim.opt.undofile = true
@@ -26,13 +19,15 @@ vim.opt.smartcase = true
 vim.opt.signcolumn = 'yes'
 vim.opt.list = true
 vim.opt.listchars = { tab = '  ', trail = '·', nbsp = '␣' }
-
 vim.opt.cursorline = false
-
 vim.opt.scrolloff = 15
-
 vim.opt.inccommand = 'split'
 vim.opt.confirm = true
+
+vim.keymap.set('n', '<space><space>x', '<cmd>source %<cr>')
+vim.keymap.set('n', '<space>x', '<cmd>:.lua<cr>')
+vim.keymap.set('v', '<space>x', '<cmd>:lua<cr>')
+
 vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
 vim.keymap.set('n', '<leader>d', vim.diagnostic.setloclist, { desc = 'Open diagnostic [Q]uickfix list' })
 vim.keymap.set('t', '<Esc><Esc>', '<C-\\><C-n>', { desc = 'Exit terminal mode' })
@@ -64,4 +59,3 @@ vim.api.nvim_create_autocmd('TextYankPost', {
     vim.highlight.on_yank()
   end,
 })
-require("config.lazy")

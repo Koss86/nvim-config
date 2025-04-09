@@ -24,10 +24,10 @@ return {
     config = function()
       local lspconfig = require("lspconfig")
       lspconfig.lua_ls.setup({})
-      lspconfig.clangd.setup({})
-      lspconfig.ols.setup({})
-      lspconfig.zls.setup({})
-      lspconfig.gopls.setup({})
+      --lspconfig.clangd.setup({})
+      --lspconfig.ols.setup({})
+      --lspconfig.zls.setup({})
+      --lspconfig.gopls.setup({})
       vim.keymap.set('n', 'K', vim.lsp.buf.hover, {} )
     end,
   }
