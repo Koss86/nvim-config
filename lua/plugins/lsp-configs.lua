@@ -24,7 +24,7 @@ return {
     config = function()
       local lspconfig = require("lspconfig")
       lspconfig.lua_ls.setup({})
-      --lspconfig.clangd.setup({})
+      lspconfig.clangd.setup({})
       --lspconfig.ols.setup({})
       --lspconfig.zls.setup({})
       --lspconfig.gopls.setup({})
