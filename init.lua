@@ -20,7 +20,7 @@ vim.opt.signcolumn = 'yes'
 vim.opt.list = true
 vim.opt.listchars = { tab = '  ', trail = '·', nbsp = '␣' }
 vim.opt.cursorline = false
-vim.opt.scrolloff = 15
+vim.opt.scrolloff = 10
 vim.opt.inccommand = 'split'
 vim.opt.confirm = true
 

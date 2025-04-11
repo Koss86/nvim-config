@@ -21,17 +21,18 @@ return {
   },
   {
     'neovim/nvim-lspconfig',
-    dependencies = { {
-      'folke/lazydev.nvim',
-      ft = "lua", -- only load on lua files
-      opts = {
-        library = {
-          -- See the configuration section for more details
-          -- Load luvit types when the `vim.uv` word is found
-          { path = '${3rd}/luv/library', words = { 'vim%.uv' } },
+    dependencies = {
+      {
+        'folke/lazydev.nvim',
+        ft = "lua", -- only load on lua files
+        opts = {
+          library = {
+            -- See the configuration section for more details
+            -- Load luvit types when the `vim.uv` word is found
+            { path = '${3rd}/luv/library', words = { 'vim%.uv' } },
+          },
         },
       },
-    },
     },
     config = function()
       local lspconfig = require('lspconfig')
@@ -48,9 +49,11 @@ return {
           if client.supports_method('textDocument/implementation') then
             vim.keymap.set('n', '<leader>fi', function() vim.lsp.buf.implementation() end, {})
           end
-          --          if client.supports_method('textDocument/completion') then
-          --           vim.lsp.completion.enable(true, client.id, args.buf, { autotrigger = true })
-          --         end
+
+          -- if client.supports_method('textDocument/completion') then
+          --   vim.lsp.completion.enable(true, client.id, args.buf, { autotrigger = true })
+          -- end
+
           if client.supports_method('textDocument/formatting') then
             vim.api.nvim_create_autocmd('BufWritePre', {
               buffer = args.buf,
