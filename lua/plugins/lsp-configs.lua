@@ -63,6 +63,7 @@ return {
       })
       vim.keymap.set('n', '<leader>m', function() vim.lsp.buf.format() end, {})
       vim.keymap.set('n', 'K', vim.lsp.buf.hover, {})
+      vim.keymap.set('n', '<leader>ca', vim.lsp.buf.code_action, {})
     end
   }
 }
