@@ -13,7 +13,7 @@ end)
 vim.opt.updatetime = 250
 vim.opt.timeoutlen = 300
 vim.opt.splitbelow = true
-vim.opt.wrap = false
+vim.opt.wrap = true
 vim.opt.breakindent = true
 vim.opt.swapfile = false
 vim.opt.undofile = true
