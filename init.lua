@@ -1,10 +1,12 @@
-require("config.lazy")
 vim.g.have_nerd_font = true
 vim.opt.number = true
 vim.opt.relativenumber = true
 vim.opt.mouse = 'a'
 vim.opt.showmode = false
 vim.opt.shiftwidth = 4
+vim.opt.tabstop = 4
+vim.opt.softtabstop = 4
+vim.opt.expandtab = true
 vim.schedule(function()
   vim.opt.clipboard = 'unnamedplus'
 end)
@@ -13,7 +15,9 @@ vim.opt.timeoutlen = 300
 vim.opt.splitbelow = true
 vim.opt.wrap = false
 vim.opt.breakindent = true
+vim.opt.swapfile = false
 vim.opt.undofile = true
+vim.opt.undodir = os.getenv("HOME") .. "/.nvim/undos/"
 vim.opt.ignorecase = true
 vim.opt.smartcase = true
 vim.opt.signcolumn = 'yes'
@@ -23,6 +27,8 @@ vim.opt.cursorline = false
 vim.opt.scrolloff = 10
 vim.opt.inccommand = 'split'
 vim.opt.confirm = true
+
+require("config.lazy")
 
 vim.keymap.set('n', '<space><space>x', '<cmd>source %<cr>')
 vim.keymap.set('n', '<space>x', '<cmd>:.lua<cr>')
