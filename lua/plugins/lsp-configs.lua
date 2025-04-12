@@ -1,3 +1,4 @@
+---@diagnostic disable: need-check-nil, missing-parameter, param-type-mismatch
 return {
   {
     'williamboman/mason.nvim',
