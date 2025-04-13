@@ -1,6 +1,9 @@
 return {
   "lewis6991/gitsigns.nvim",
   config = function()
-    require("gitsigns").setup({})
-  end
+    local gitsigns = require("gitsigns")
+    gitsigns.setup({
+      vim.keymap.set("n", "<leader>dt", gitsigns.diffthis, {})
+    })
+  end,
 }

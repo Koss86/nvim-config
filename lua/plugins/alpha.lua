@@ -1,7 +1,6 @@
 return {
   "goolord/alpha-nvim",
   lazy = false,
-  
 
   config = function()
     local alpha = require("alpha")
