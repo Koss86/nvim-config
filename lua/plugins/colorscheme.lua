@@ -25,6 +25,14 @@ return {
     config = function()
       require("tokyonight").setup({
         style = "night",
+        styles = {
+          comments = { italic = false },
+          keywords = {},
+          functions = {},
+          variables = {},
+        },
+        dim_inactive = true,
+        lualine_bold = true,
 
         on_colors = function(colors)
           colors.hint = colors.orange
