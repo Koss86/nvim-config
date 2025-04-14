@@ -1,4 +1,3 @@
----@diagnostic disable: need-check-nil, missing-parameter, param-type-mismatch
 return {
   {
     'williamboman/mason.nvim',
@@ -44,6 +43,7 @@ return {
       --lspconfig.zls.setup({})
       --lspconfig.gopls.setup({})
 
+      --[[
       vim.api.nvim_create_autocmd('LspAttach', {
         callback = function(args)
           local client = vim.lsp.get_client_by_id(args.data.client_id)
@@ -65,9 +65,18 @@ return {
           end
         end,
       })
+]]
       vim.keymap.set('n', '<leader>m', function() vim.lsp.buf.format() end, {})
       vim.keymap.set('n', 'K', vim.lsp.buf.hover, {})
       vim.keymap.set('n', '<leader>ca', vim.lsp.buf.code_action, {})
     end
-  }
+  },
+  {
+    "nvimtools/none-ls.nvim",
+    --[[
+config = function()
+  local null_ls = require("null-ls")
+end
+]]
+  },
 }

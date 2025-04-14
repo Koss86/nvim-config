@@ -18,7 +18,6 @@ return {
     end,
   },
   {
-    -- comments test AVC avc
     "folke/tokyonight.nvim",
     lazy = false,
     priority = 1000,
