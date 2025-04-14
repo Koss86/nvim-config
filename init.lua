@@ -1,4 +1,3 @@
-print "keymap test"
 vim.g.have_nerd_font = true
 vim.opt.number = true
 vim.opt.relativenumber = true
@@ -18,7 +17,7 @@ vim.opt.wrap = true
 vim.opt.breakindent = true
 vim.opt.swapfile = false
 vim.opt.undofile = true
-vim.opt.undodir = os.getenv("HOME") .. "/.nvim/undos/"
+vim.opt.undodir = os.getenv("HOME") .. "/.nvim/undo/"
 vim.opt.ignorecase = true
 vim.opt.smartcase = true
 vim.opt.signcolumn = 'yes'
