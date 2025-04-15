@@ -1,19 +1,19 @@
 return {
-  {
-    "nvim-neo-tree/neo-tree.nvim",
-    branch = "v3.x",
-    dependencies = {
-      "MunifTanjim/nui.nvim",
-    },
-    lazy = false, -- neo-tree will lazily load itself
-    ---@module "neo-tree"
----@diagnostic disable-next-line: undefined-doc-name
-   ---@type neotree.Config?
-    config = function ()
-      require("neo-tree").setup({
-      window = { { width = 10 }, },
-    })
-    end
+  "nvim-neo-tree/neo-tree.nvim",
+  branch = "v3.x",
+  dependencies = {
+    "nvim-lua/plenary.nvim",
+    "nvim-tree/nvim-web-devicons",
+    "MunifTanjim/nui.nvim",
   },
-  vim.keymap.set('n' , '<leader>f', ':Neotree toggle<cr>', {} )
+  lazy = false,
+  ---@module "neo-tree"
+  ---@type neotree.Config?
+  opts = {
+    window = {
+      width = 27,
+      height = 15,
+    },
+  },
+  vim.keymap.set("n", "<leader>f", "<cmd>Neotree toggle<cr>")
 }
