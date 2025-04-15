@@ -5,9 +5,9 @@ return {
     opts = {
         style = "moon",
         styles = {
-            comments = { italic = false, bold = true },
-            keywords = { italic = false, bold = true },
-            functions = { italic = true },
+            comments = { italic = false },
+            keywords = { italic = true, bold = true },
+            functions = { bold = true },
             variables = {},
             dim_inactive = true,
         },
