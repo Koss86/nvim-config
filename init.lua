@@ -5,9 +5,9 @@ vim.opt.mouse = 'a'
 vim.opt.showmode = false
 
 vim.opt.expandtab = true
-vim.opt.tabstop = 2
-vim.optsofttabstop = 2
-vim.opt.shiftwidth = 2
+--vim.opt.tabstop = 4
+--vim.optsofttabstop = 4
+vim.opt.shiftwidth = 4
 
 vim.schedule(function()
   vim.opt.clipboard = 'unnamedplus'
