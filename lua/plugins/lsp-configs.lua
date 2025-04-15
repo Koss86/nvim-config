@@ -37,7 +37,7 @@ return {
     config = function()
       local lspconfig = require("lspconfig")
 
-      lspconfig.lua_ls.setup({})
+      lspconfig.lua_ls.setup({ capabilities = capabilities })
       lspconfig.clangd.setup({})
       --lspconfig.ols.setup({})
       --lspconfig.zls.setup({})
@@ -84,7 +84,8 @@ return {
       null_ls.setup({
         sources = {
           null_ls.builtins.formatting.stylua,
-          --null_ls.builtins.formatting.clangd,
+          null_ls.builtins.formatting.clang_format,
+          null_ls.builtins.diagnostics.cpplint,
         },
       })
     end,
