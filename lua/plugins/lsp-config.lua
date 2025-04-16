@@ -1,4 +1,4 @@
----@diagnostic disable: missing-parameter, need-check-nil, param-type-mismatch
+---@diagnostic disable: need-check-nil
 return {
   {
     "williamboman/mason.nvim",
@@ -7,7 +7,7 @@ return {
         icons = {
           package_installed = "✓",
           package_pending = "➜",
-          package_uninstalled = "✗"
+          package_uninstalled = "✗",
         },
       },
     },
@@ -32,6 +32,7 @@ return {
         },
       },
     },
+
     config = function()
       require("lspconfig").lua_ls.setup({
         cmd = { "lua-language-server" },
@@ -52,15 +53,20 @@ return {
           },
         },
       })
+
       vim.api.nvim_create_autocmd("LspAttach", {
         callback = function(args)
           local client = vim.lsp.get_client_by_id(args.data.client_id)
-          if client.supports_method("textDocument/implementation") then
-            vim.keymap.set("n", "<leader>fi", function() vim.lsp.buf.implementation() end, {})
+          if client:supports_method("textDocument/implementation") then
+            vim.keymap.set("n", "<leader>fi", function()
+              vim.lsp.buf.implementation()
+            end, {})
           end
 
-          if client.supports_method("textDocument/formatting") then
-            vim.keymap.set("n", "<leader>m", function() vim.lsp.buf.format() end)
+          if
+              not client:supports_method("textDocument/willSaveWaitUntil")
+              and client:supports_method("textDocument/formatting")
+          then
             vim.api.nvim_create_autocmd("BufWritePre", {
               buffer = args.buf,
               callback = function()
@@ -70,10 +76,11 @@ return {
           end
         end,
       })
-      vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, {})
-    end
-  },
-  {
 
-  }
+      vim.keymap.set("n", "<leader>m", function()
+        vim.lsp.buf.format()
+      end)
+      vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, {})
+    end,
+  },
 }
