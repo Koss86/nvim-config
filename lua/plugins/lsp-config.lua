@@ -34,6 +34,10 @@ return {
     },
 
     config = function()
+      require("lspconfig").clangd.setup({
+        capabilities = capabilities,
+      })
+
       require("lspconfig").lua_ls.setup({
         cmd = { "lua-language-server" },
         filetypes = { "lua" },
@@ -58,9 +62,7 @@ return {
         callback = function(args)
           local client = vim.lsp.get_client_by_id(args.data.client_id)
           if client:supports_method("textDocument/implementation") then
-            vim.keymap.set("n", "<leader>fi", function()
-              vim.lsp.buf.implementation()
-            end, {})
+            vim.keymap.set("n", "<leader>fi", vim.lsp.buf.implementation, { desc = "Go to Implementation" })
           end
 
           if
@@ -76,11 +78,8 @@ return {
           end
         end,
       })
-
-      vim.keymap.set("n", "<leader>m", function()
-        vim.lsp.buf.format()
-      end)
-      vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, {})
+      vim.keymap.set("n", "<leader>m", vim.lsp.buf.format, { desc = "For[m]at Document" })
+      vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, { desc = "Display [c]ode [a]ctions" })
     end,
   },
 }
