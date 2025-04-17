@@ -34,6 +34,8 @@ return {
     },
 
     config = function()
+      local capabilities = require("cmp_nvim_lsp").default_capabilities()
+
       require("lspconfig").clangd.setup({
         capabilities = capabilities,
       })
@@ -66,8 +68,8 @@ return {
           end
 
           if
-              not client:supports_method("textDocument/willSaveWaitUntil")
-              and client:supports_method("textDocument/formatting")
+            not client:supports_method("textDocument/willSaveWaitUntil")
+            and client:supports_method("textDocument/formatting")
           then
             vim.api.nvim_create_autocmd("BufWritePre", {
               buffer = args.buf,
