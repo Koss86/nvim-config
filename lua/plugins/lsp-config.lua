@@ -35,12 +35,13 @@ return {
 
     config = function()
       local capabilities = require("cmp_nvim_lsp").default_capabilities()
+      local lspconfig = require("lspconfig")
 
-      require("lspconfig").clangd.setup({
+      lspconfig.clangd.setup({
         capabilities = capabilities,
       })
 
-      require("lspconfig").lua_ls.setup({
+      lspconfig.lua_ls.setup({
         cmd = { "lua-language-server" },
         filetypes = { "lua" },
         capabilities = capabilities,
@@ -60,6 +61,22 @@ return {
         },
       })
 
+      lspconfig.ols.setup({
+        capabilities = capabilities,
+        init_options = {
+          checker_args = "-strict-style",
+          collections = {
+            { name = "shared", path = vim.fn.expand("$HOME/local/Odin") },
+          },
+          enable_hover = false,
+          enable_snippets = true,
+          enable_semantic_tokens = true,
+          enable_document_symbols = true,
+          enable_inlay_hints = true,
+          enable_procedure_snippet = false,
+        },
+      })
+
       vim.api.nvim_create_autocmd("LspAttach", {
         callback = function(args)
           local client = vim.lsp.get_client_by_id(args.data.client_id)
@@ -68,8 +85,8 @@ return {
           end
 
           if
-            not client:supports_method("textDocument/willSaveWaitUntil")
-            and client:supports_method("textDocument/formatting")
+              not client:supports_method("textDocument/willSaveWaitUntil")
+              and client:supports_method("textDocument/formatting")
           then
             vim.api.nvim_create_autocmd("BufWritePre", {
               buffer = args.buf,
