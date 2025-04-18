@@ -15,5 +15,5 @@ return {
       height = 15,
     },
   },
-  vim.keymap.set("n", "<leader>f", "<cmd>Neotree toggle<cr>")
+  vim.keymap.set("n", "<leader>f", "<cmd>Neotree toggle<cr>"),
 }
