@@ -7,24 +7,23 @@ return {
   config = function()
     local dap, dapui = require("dap"), require("dapui")
 
-    dap.adapters.lldb = {
+    dap.adapters.codelldb = {
       type = "executable",
-      command = "codelldb",
-      name = "lldb",
+      command = vim.fn.stdpath("data") .. "/mason/bin/codelldb",
+      -- may need to enable on laptop, but I use wsl so we'll see.
+      -- detached = false,
     }
 
     dap.configurations.c = {
       {
-        name = "Launch",
-        type = "lldb",
+        name = "Launch file",
+        type = "codelldb",
         request = "launch",
         program = function()
           return vim.fn.input("Path to executable: ", vim.fn.getcwd() .. "/", "file")
         end,
         cwd = "${workspaceFolder}",
         stopOnEntry = false,
-        args = { "-Wall", "-g" },
-        runInTerminal = false,
       },
     }
 
