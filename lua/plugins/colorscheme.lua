@@ -1,7 +1,7 @@
 return {
   {
     "folke/tokyonight.nvim",
-    lazy = false,
+    lazy = true,
     priority = 1000,
     opts = {
       style = "night",
@@ -12,10 +12,10 @@ return {
         variables = {},
         dim_inactive = true,
       },
-      --[[on_colors = function(colors)
+      on_colors = function(colors)
         colors.hint = colors.orange
         colors.error = "#ff0000"
-      end,]]
+      end,
     },
     init = function()
       vim.cmd("colorscheme tokyonight")
@@ -25,7 +25,6 @@ return {
     "projekt0n/github-nvim-theme",
     name = "github-theme",
     lazy = true,
-    priority = 1000,
     config = function()
       require("github-theme").setup({
         options = {
@@ -50,7 +49,6 @@ return {
     "catppuccin/nvim",
     name = "catppuccin",
     lazy = true,
-    priotity = 1000,
     opts = {
       styles = {
         comments = {},

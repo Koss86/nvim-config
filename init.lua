@@ -33,12 +33,12 @@ vim.opt.confirm = true
 
 -- Toggle between two different colorschemes
 vim.keymap.set("n", "<leader>cs", function()
-  if vim.g.colors_name == "catppuccin" then
-    vim.cmd("colorscheme tokyonight")
-  elseif vim.g.colors_name == "tokyonight" then
+  if vim.g.colors_name == "tokyonight-night" then
     vim.cmd("colorscheme catppuccin")
+  else
+    vim.cmd("colorscheme tokyonight")
   end
-end, { desc = "Toggle two [c]olor[s]chemes" })
+end, { desc = "Toggle [c]olor[s]cheme" })
 
 vim.keymap.set("i", "jj", "<Esc>", { desc = "Exit Insert Mode" })
 vim.keymap.set("n", "<space><space>x", "<cmd>source %<cr>", { desc = "Source Document" })
