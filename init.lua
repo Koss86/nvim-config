@@ -31,6 +31,16 @@ vim.opt.scrolloff = 15
 vim.opt.inccommand = "split"
 vim.opt.confirm = true
 
+-- Toggle between two different colorschemes
+vim.keymap.set("n", "<leader>cs", function()
+  if vim.g.colors_name == "catppuccin" then
+    vim.cmd("colorscheme tokyonight")
+  elseif vim.g.colors_name == "tokyonight" then
+    vim.cmd("colorscheme catppuccin")
+  end
+end, { desc = "Toggle two [c]olor[s]chemes" })
+
+vim.keymap.set("i", "jj", "<Esc>", { desc = "Exit Insert Mode" })
 vim.keymap.set("n", "<space><space>x", "<cmd>source %<cr>", { desc = "Source Document" })
 vim.keymap.set("n", "<space>x", "<cmd>.lua<cr>", { desc = "Execute Lua Document" })
 vim.keymap.set("v", "<space>x", "<cmd>lua<cr>", { desc = "Execute line of Lua Code" })

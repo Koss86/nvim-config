@@ -21,7 +21,6 @@ return {
       vim.cmd("colorscheme tokyonight")
     end,
   },
-  --[[
   {
     "projekt0n/github-nvim-theme",
     name = "github-theme",
@@ -44,8 +43,18 @@ return {
           },
         },
       })
-      vim.cmd("colorscheme github_dark_dimmed")
+      -- vim.cmd("colorscheme github_dark_dimmed")
     end,
   },
-  ]]
+  {
+    "catppuccin/nvim",
+    name = "catppuccin",
+    lazy = true,
+    priotity = 1000,
+    opts = {
+      styles = {
+        comments = {},
+      },
+    },
+  },
 }
