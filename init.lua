@@ -4,9 +4,9 @@ vim.opt.relativenumber = true
 vim.opt.mouse = "a"
 vim.opt.showmode = false
 vim.opt.expandtab = true
-vim.opt.tabstop = 4
-vim.optsofttabstop = 4
-vim.opt.shiftwidth = 4
+vim.opt.tabstop = 2
+vim.optsofttabstop = 2
+vim.opt.shiftwidth = 2
 vim.g.mapleader = " "
 
 vim.schedule(function()
@@ -16,7 +16,7 @@ end)
 vim.opt.updatetime = 250
 vim.opt.timeoutlen = 300
 vim.opt.splitbelow = true
-vim.opt.wrap = false
+vim.opt.wrap = true
 vim.opt.swapfile = false
 vim.opt.breakindent = true
 vim.opt.undodir = os.getenv("HOME") .. "/.local/state/nvim/undo/"

@@ -68,7 +68,7 @@ return {
           collections = {
             { name = "shared", path = vim.fn.expand("$HOME/local/Odin") },
           },
-          enable_hover = false,
+          enable_hover = true,
           enable_snippets = true,
           enable_semantic_tokens = true,
           enable_document_symbols = true,

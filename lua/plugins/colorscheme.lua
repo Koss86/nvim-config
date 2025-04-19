@@ -4,7 +4,7 @@ return {
     lazy = false,
     priority = 1000,
     opts = {
-      style = "moon",
+      style = "night",
       styles = {
         comments = { italic = false },
         keywords = { italic = true, bold = false },
@@ -12,16 +12,16 @@ return {
         variables = {},
         dim_inactive = true,
       },
+      --[[on_colors = function(colors)
+        colors.hint = colors.orange
+        colors.error = "#ff0000"
+      end,]]
     },
     init = function()
       vim.cmd("colorscheme tokyonight")
-      ---@diagnostic disable-next-line: lowercase-global
-      on_colors = function(colors)
-        colors.hint = colors.orange
-        colors.error = "#ff0000"
-      end
     end,
   },
+  --[[
   {
     "projekt0n/github-nvim-theme",
     name = "github-theme",
@@ -33,8 +33,8 @@ return {
           styles = {
             comments = "NONE",
             functions = "bold",
-            keywords = "NONE",
-            variables = "NONE",
+            keywords = "italic, bold",
+            variables = "",
             conditionals = "NONE",
             constants = "NONE",
             numbers = "NONE",
@@ -47,4 +47,5 @@ return {
       vim.cmd("colorscheme github_dark_dimmed")
     end,
   },
+  ]]
 }
