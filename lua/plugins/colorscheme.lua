@@ -4,7 +4,7 @@ return {
     lazy = true,
     priority = 1000,
     opts = {
-      style = "night",
+      style = "moon",
       styles = {
         comments = { italic = false },
         keywords = { italic = true, bold = false },
@@ -25,6 +25,7 @@ return {
     "projekt0n/github-nvim-theme",
     name = "github-theme",
     lazy = true,
+    priority = 1000,
     config = function()
       require("github-theme").setup({
         options = {
@@ -33,26 +34,15 @@ return {
             functions = "bold",
             keywords = "italic, bold",
             variables = "",
-            conditionals = "NONE",
-            constants = "NONE",
-            numbers = "NONE",
-            operators = "NONE",
+            conditionals = "bold",
+            constants = "",
+            numbers = "",
+            operators = "bold",
             strings = "NONE",
             types = "NONE",
           },
         },
       })
-      -- vim.cmd("colorscheme github_dark_dimmed")
     end,
-  },
-  {
-    "catppuccin/nvim",
-    name = "catppuccin",
-    lazy = true,
-    opts = {
-      styles = {
-        comments = {},
-      },
-    },
   },
 }

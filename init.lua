@@ -31,24 +31,26 @@ vim.opt.scrolloff = 15
 vim.opt.inccommand = "split"
 vim.opt.confirm = true
 
--- Toggle between two different colorschemes
+--[[ Toggle between two different colorschemes
 vim.keymap.set("n", "<leader>cs", function()
   if vim.g.colors_name == "tokyonight-night" then
-    vim.cmd("colorscheme catppuccin")
+    vim.cmd("colorscheme github_dark_dimmed")
   else
     vim.cmd("colorscheme tokyonight")
   end
 end, { desc = "Toggle [c]olor[s]cheme" })
+]]
 
 vim.keymap.set("i", "jj", "<Esc>", { desc = "Exit Insert Mode" })
 vim.keymap.set("n", "<space><space>x", "<cmd>source %<cr>", { desc = "Source Document" })
 vim.keymap.set("n", "<space>x", "<cmd>.lua<cr>", { desc = "Execute Lua Document" })
 vim.keymap.set("v", "<space>x", "<cmd>lua<cr>", { desc = "Execute line of Lua Code" })
-vim.keymap.set("n", "<leader>tt", "<cmd>:term<cr>", { desc = "Open [T]erminal" })
+-- Open terminal in new window 5 rows high
+vim.keymap.set("n", "<leader>tt", "<cmd>:5split | terminal<cr>", { desc = "Open [T]erminal" })
 
 vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>")
 vim.keymap.set("n", "<leader>d", vim.diagnostic.setloclist, { desc = "Open [d]iagnostic quickfix list" })
-vim.keymap.set("t", "<Esc><Esc>", "<C-\\><C-n>", { desc = "Exit terminal mode" })
+vim.keymap.set("t", "//", "<C-\\><C-n>", { desc = "Exit terminal mode" })
 
 vim.keymap.set("n", "<C-h>", "<C-w><C-h>", { desc = "Move focus to the left window" })
 vim.keymap.set("n", "<C-l>", "<C-w><C-l>", { desc = "Move focus to the right window" })
