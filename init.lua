@@ -41,7 +41,7 @@ vim.keymap.set("n", "<leader>cs", function()
 end, { desc = "Toggle [c]olor[s]cheme" })
 ]]
 
-vim.keymap.set("i", "ii", "<Esc>", { desc = "Exit Insert Mode" })
+vim.keymap.set("i", "jj", "<Esc>", { desc = "Exit Insert Mode" })
 vim.keymap.set("n", "<space><space>x", "<cmd>source %<cr>", { desc = "Source Document" })
 vim.keymap.set("n", "<space>x", "<cmd>.lua<cr>", { desc = "Execute Lua Document" })
 vim.keymap.set("v", "<space>x", "<cmd>lua<cr>", { desc = "Execute line of Lua Code" })
@@ -50,7 +50,7 @@ vim.keymap.set("n", "<leader>tt", "<cmd>:5new | terminal<cr>", { desc = "Open [t
 
 vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>")
 vim.keymap.set("n", "<leader>d", vim.diagnostic.setloclist, { desc = "Open [d]iagnostic quickfix list" })
-vim.keymap.set("t", "//", "<C-\\><C-n>", { desc = "Exit terminal mode" })
+vim.keymap.set("t", ";;", "<C-\\><C-n>", { desc = "Exit terminal mode" })
 
 vim.keymap.set("n", "<C-h>", "<C-w><C-h>", { desc = "Move focus to the left window" })
 vim.keymap.set("n", "<C-l>", "<C-w><C-l>", { desc = "Move focus to the right window" })

@@ -3,6 +3,6 @@ return {
   config = function()
     local gitsigns = require("gitsigns")
     gitsigns.setup({})
-    vim.keymap.set("n", "<leader>dt", gitsigns.diffthis)
+    vim.keymap.set("n", "<leader>dt", gitsigns.diffthis, { desc = "[d]iff [t]his File" })
   end,
 }
