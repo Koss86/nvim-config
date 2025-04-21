@@ -46,7 +46,7 @@ vim.keymap.set("n", "<space><space>x", "<cmd>source %<cr>", { desc = "Source Doc
 vim.keymap.set("n", "<space>x", "<cmd>.lua<cr>", { desc = "Execute Lua Document" })
 vim.keymap.set("v", "<space>x", "<cmd>lua<cr>", { desc = "Execute line of Lua Code" })
 -- Open terminal in new window, 5 lines high
-vim.keymap.set("n", "<leader>tt", "<cmd>:5new | terminal<cr>", { desc = "Open [T]erminal" })
+vim.keymap.set("n", "<leader>tt", "<cmd>:5new | terminal<cr>", { desc = "Open [t]erminal" })
 
 vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>")
 vim.keymap.set("n", "<leader>d", vim.diagnostic.setloclist, { desc = "Open [d]iagnostic quickfix list" })

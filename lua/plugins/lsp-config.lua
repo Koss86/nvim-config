@@ -39,6 +39,16 @@ return {
 
       lspconfig.clangd.setup({
         capabilities = capabilities,
+        init_options = {
+          clangdFileStatus = true,
+          usePlaceholders = true,
+          completeUnimported = true,
+          clangdInlayHints = {
+            parameterHints = true,
+            chainingHints = true,
+            surroundingHints = true,
+          },
+        },
       })
 
       lspconfig.lua_ls.setup({
@@ -97,8 +107,9 @@ return {
           end
         end,
       })
-      vim.keymap.set("n", "<leader>m", vim.lsp.buf.format, { desc = "For[m]at Document" })
+      vim.keymap.set("n", "<leader>gd", "<C-w><C-]>", { desc = "[g]o to [d]efinition (opens in split)" })
       vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, { desc = "Display [c]ode [a]ctions" })
+      vim.keymap.set("n", "<leader>m", vim.lsp.buf.format, { desc = "For[m]at Document" })
     end,
   },
 }
