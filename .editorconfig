@@ -1,0 +1,9 @@
+[*.lua]
+indent_style = space
+indent_size = 2
+[*.c]
+indent_style = space
+indent_size = 2
+[*.odin]
+indent_style = space
+indent_size = 2
