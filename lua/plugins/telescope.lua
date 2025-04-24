@@ -11,6 +11,12 @@ return {
           find_files = {
             theme = "ivy",
           },
+          live_grep = {
+            theme = "ivy",
+          },
+          help_tags = {
+            theme = "ivy",
+          },
         },
         extensions = {
           ["ui-select"] = {
@@ -21,6 +27,7 @@ return {
           },
         },
       })
+
       local builtin = require("telescope.builtin")
       vim.keymap.set("n", "<leader>ff", builtin.find_files)
       vim.keymap.set("n", "<leader>fg", builtin.live_grep)
@@ -31,6 +38,7 @@ return {
         })
       end)
     end,
+
     init = function()
       require("telescope").load_extension("ui-select")
     end,

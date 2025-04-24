@@ -1,6 +1,6 @@
 vim.g.have_nerd_font = true
 vim.opt.number = true
-vim.opt.relativenumber = true
+vim.opt.relativenumber = false
 vim.opt.mouse = "a"
 vim.opt.showmode = false
 vim.opt.expandtab = true
@@ -45,8 +45,7 @@ vim.keymap.set("i", "jj", "<Esc>", { desc = "Exit Insert Mode" })
 vim.keymap.set("n", "<space><space>x", "<cmd>source %<cr>", { desc = "Source Document" })
 vim.keymap.set("n", "<space>x", "<cmd>.lua<cr>", { desc = "Execute Lua Document" })
 vim.keymap.set("v", "<space>x", "<cmd>lua<cr>", { desc = "Execute line of Lua Code" })
--- Open terminal in new window, 5 lines high
---vim.keymap.set("n", "<leader>tt", "<cmd>:5new | terminal<cr>", { desc = "Open [t]erminal" })
+-- Open terminal in new window w/ reusable buffer.
 vim.keymap.set("n", "<leader>tt", function()
   require("config.term").toggle()
 end, { desc = "[t]oggle [t]erminal" })

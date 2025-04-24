@@ -76,7 +76,7 @@ return {
         init_options = {
           checker_args = "-strict-style",
           collections = {
-            { name = "shared", path = vim.fn.expand("$HOME/local/Odin") },
+            { name = "shared", path = "$HOME/local/Odin" },
           },
           enable_hover = true,
           enable_snippets = true,
@@ -107,6 +107,10 @@ return {
           end
         end,
       })
+
+      vim.keymap.set("n", "K", function()
+        vim.lsp.buf.hover({ border = "rounded" })
+      end)
       vim.keymap.set("n", "<leader>gd", "<C-w><C-]>", { desc = "[g]o to [d]efinition (opens in split)" })
       vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, { desc = "Display [c]ode [a]ctions" })
       vim.keymap.set("n", "<leader>m", vim.lsp.buf.format, { desc = "For[m]at Document" })
