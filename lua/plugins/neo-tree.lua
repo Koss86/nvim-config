@@ -11,7 +11,7 @@ return {
   ---@type neotree.Config?
   opts = {
     window = {
-      width = 27,
+      width = 23,
       height = 15,
     },
   },
