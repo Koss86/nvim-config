@@ -41,7 +41,7 @@ vim.keymap.set("n", "<leader>cs", function()
 end, { desc = "Toggle [c]olor[s]cheme" })
 ]]
 
-vim.keymap.set("i", "jj", "<Esc>", { desc = "Exit Insert Mode" })
+vim.keymap.set("i", ";;", "<Esc>", { desc = "Exit Insert Mode" })
 vim.keymap.set("n", "<space><space>x", "<cmd>source %<cr>", { desc = "Source Document" })
 vim.keymap.set("n", "<space>x", "<cmd>.lua<cr>", { desc = "Execute Lua Document" })
 vim.keymap.set("v", "<space>x", "<cmd>lua<cr>", { desc = "Execute line of Lua Code" })

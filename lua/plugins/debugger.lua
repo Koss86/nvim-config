@@ -46,23 +46,23 @@ return {
           elements = {
             {
               id = "scopes",
-              size = 0.25,
+              size = 0.70,
             },
             {
               id = "breakpoints",
-              size = 0.25,
+              size = 0.10,
             },
             {
               id = "stacks",
-              size = 0.25,
+              size = 0.10,
             },
             {
               id = "watches",
-              size = 0.25,
+              size = 0.10,
             },
           },
           position = "left",
-          size = 40,
+          size = 30,
         },
         {
           elements = {
@@ -143,8 +143,8 @@ return {
     vim.keymap.set("n", "<leader>tb", dap.toggle_breakpoint, { desc = "[t]oggle [b]reakpoint" })
     vim.keymap.set("n", "<leader>dc", dap.continue, { desc = "[d]ebugger [c]ontinue/start" })
     vim.keymap.set("n", "<leader>sd", "<cmd>DapTerminate<cr>", { desc = "[s]top [d]ebugger" })
-    vim.keymap.set("n", "<F10>", require("dap").step_over)
-    vim.keymap.set("n", "<F11>", require("dap").step_into)
-    vim.keymap.set("n", "<F12>", require("dap").step_out)
+    vim.keymap.set("n", "N", require("dap").step_over)
+    vim.keymap.set("n", "<leader>i", require("dap").step_into)
+    vim.keymap.set("n", "<leader>o", require("dap").step_out)
   end,
 }
