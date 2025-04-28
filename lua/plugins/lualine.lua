@@ -2,7 +2,8 @@ return {
   "nvim-lualine/lualine.nvim",
   opts = {
     options = {
-      theme = "nightfly",
+      theme = "tokyonight",
+      --theme = "nightfly",
     },
     sections = {
       lualine_a = { "mode" },
