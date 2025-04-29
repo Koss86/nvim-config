@@ -7,13 +7,11 @@ return {
     "MunifTanjim/nui.nvim",
   },
   lazy = false,
-  ---@module "neo-tree"
-  ---@type neotree.Config?
   opts = {
     window = {
-      position = "left",
-      width = 26,
+      width = 25,
+      height = 20,
     },
-  },
-  vim.keymap.set("n", "<leader>f", "<cmd>Neotree toggle<cr>")
+    vim.keymap.set("n", "<leader>f", "<cmd>Neotree toggle<cr>", { desc = "Open NeoTree" } )
+  }
 }
