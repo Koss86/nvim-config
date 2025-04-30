@@ -4,12 +4,12 @@ return {
     lazy = true,
     priority = 1000,
     opts = {
-      style = "moon",
+      style = "night",
       styles = {
         comments = { italic = false },
-        keywords = { italic = true, bold = false },
-        functions = { bold = true },
-        variables = {},
+        keywords = { italic = true, bold = true },
+        functions = { italic = true, bold = false },
+        variables = { italic = false, bold = false },
         dim_inactive = true,
       },
       on_colors = function(colors)
