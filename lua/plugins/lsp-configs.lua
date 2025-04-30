@@ -1,3 +1,4 @@
+-- LSP configurations and keymaps
 return {
   {
     "williamboman/mason.nvim",
