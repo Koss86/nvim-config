@@ -1,6 +1,6 @@
 vim.g.have_nerd_font = true
 vim.opt.number = true
-vim.opt.relativenumber = false
+vim.opt.relativenumber = true
 vim.opt.mouse = "a"
 vim.opt.showmode = false
 vim.opt.expandtab = true
@@ -23,7 +23,7 @@ vim.opt.undodir = os.getenv("HOME") .. "/.local/state/nvim/undo/"
 vim.opt.undofile = true
 vim.opt.ignorecase = true
 vim.opt.smartcase = true
-vim.opt.signcolumn = "yes"
+vim.opt.signcolumn = "auto"
 vim.opt.list = true
 vim.opt.listchars = { tab = "  ", trail = "·", nbsp = "␣" }
 vim.opt.cursorline = false
@@ -41,27 +41,6 @@ vim.keymap.set("n", "<leader>cs", function()
 end, { desc = "Toggle [c]olor[s]cheme" })
 ]]
 
-vim.keymap.set({ "n", "v" }, "<leader>p", '"_dP')
-vim.keymap.set("n", "<C-d>", "<C-d>zz")
-vim.keymap.set("n", "<C-u", "<C-u>zz")
-vim.keymap.set("i", ";;", "<Esc>", { desc = "Exit Insert Mode" })
-vim.keymap.set("n", "<space><space>x", "<cmd>source %<cr>", { desc = "Source Document" })
-vim.keymap.set("n", "<space>x", "<cmd>.lua<cr>", { desc = "Execute Lua Document" })
-vim.keymap.set("v", "<space>x", "<cmd>lua<cr>", { desc = "Execute line of Lua Code" })
--- Open terminal in new window w/ reusable buffer.
-vim.keymap.set("n", "<leader>tt", function()
-  require("config.term").toggle()
-end, { desc = "[t]oggle [t]erminal" })
-
-vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>")
-vim.keymap.set("n", "<leader>d", vim.diagnostic.setloclist, { desc = "Open [d]iagnostic quickfix list" })
-vim.keymap.set("t", ";;", "<C-\\><C-n>", { desc = "Exit terminal mode" })
-
-vim.keymap.set("n", "<C-h>", "<C-w><C-h>", { desc = "Move focus left" })
-vim.keymap.set("n", "<C-l>", "<C-w><C-l>", { desc = "Move focus right" })
-vim.keymap.set("n", "<C-j>", "<C-w><C-j>", { desc = "Move focus down" })
-vim.keymap.set("n", "<C-k>", "<C-w><C-k>", { desc = "Move focus up" })
-
 vim.api.nvim_create_autocmd("TextYankPost", {
   desc = "Highlight when yanking (copying) text",
   group = vim.api.nvim_create_augroup("kickstart-highlight-yank", { clear = true }),
@@ -78,3 +57,4 @@ vim.diagnostic.config({
 })
 
 require("config.lazy")
+require("config.keymaps")
