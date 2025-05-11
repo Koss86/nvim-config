@@ -38,7 +38,7 @@ return {
       local lspconfig = require("lspconfig")
 
       lspconfig.clangd.setup({
-        capabilities = capabilities,
+        --capabilities = capabilities,
         init_options = {
           clangdFileStatus = true,
           usePlaceholders = true,
