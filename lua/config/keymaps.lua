@@ -17,9 +17,9 @@ return {
   vim.keymap.set("n", "<leader>tt", function()
     require("config.custom").openSplitTerm()
   end, { desc = "[t]oggle [t]erminal" }),
-  vim.keymap.set("n", "<leader>tn", function()
-    require("config.custom").openTerm()
-  end, {}),
+  vim.keymap.set("n", "<leader>gu", function()
+    require("config.custom").openGitUi()
+  end, { desc = "Toggle [g]it [u]i" }),
 
   vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>"),
   vim.keymap.set("n", "<leader>d", vim.diagnostic.setloclist, { desc = "Open [d]iagnostic quickfix list" }),
