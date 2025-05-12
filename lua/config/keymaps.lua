@@ -15,8 +15,11 @@ return {
 
   -- Open terminal in new window w/ reusable buffer.
   vim.keymap.set("n", "<leader>tt", function()
-    require("config.term").toggle()
+    require("config.custom").openSplitTerm()
   end, { desc = "[t]oggle [t]erminal" }),
+  vim.keymap.set("n", "<leader>tn", function()
+    require("config.custom").openTerm()
+  end, {}),
 
   vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>"),
   vim.keymap.set("n", "<leader>d", vim.diagnostic.setloclist, { desc = "Open [d]iagnostic quickfix list" }),

@@ -8,7 +8,7 @@ return {
       styles = {
         comments = { italic = false },
         keywords = { italic = true, bold = true },
-        functions = { italic = true, bold = false },
+        functions = { italic = false, bold = true },
         variables = { italic = false, bold = false },
         dim_inactive = true,
       },
