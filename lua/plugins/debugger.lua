@@ -97,7 +97,6 @@ return {
       type = "executable",
       command = vim.fn.stdpath("data") .. "/mason/bin/codelldb",
       -- may need to enable on laptop, but I use wsl so we'll see.
-      -- If I could get the debugger to work.
       -- detached = false,
     }
 
