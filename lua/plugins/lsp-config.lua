@@ -38,17 +38,17 @@ return {
       local lspconfig = require("lspconfig")
 
       lspconfig.clangd.setup({
-        --capabilities = capabilities,
-        init_options = {
-          clangdFileStatus = true,
-          usePlaceholders = true,
-          completeUnimported = true,
-          clangdInlayHints = {
-            parameterHints = true,
-            chainingHints = true,
-            surroundingHints = true,
-          },
-        },
+        capabilities = capabilities,
+        --init_options = {
+        -- clangdFileStatus = true,
+        -- usePlaceholders = true,
+        -- completeUnimported = true,
+        -- clangdInlayHints = {
+        --  parameterHints = true,
+        -- chainingHints = true,
+        -- surroundingHints = true,
+        --  },
+        -- },
       })
 
       lspconfig.lua_ls.setup({
@@ -95,8 +95,8 @@ return {
           end
 
           if
-              not client:supports_method("textDocument/willSaveWaitUntil")
-              and client:supports_method("textDocument/formatting")
+            not client:supports_method("textDocument/willSaveWaitUntil")
+            and client:supports_method("textDocument/formatting")
           then
             vim.api.nvim_create_autocmd("BufWritePre", {
               buffer = args.buf,
