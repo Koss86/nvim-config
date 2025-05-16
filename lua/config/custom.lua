@@ -6,7 +6,7 @@ local term_winid = nil
 local term_gui_winid = nil
 local term_gui_bufnum = nil
 
-function M.openSplitTerm()
+function M.toggleSplitTerm()
   if term_bufnum and vim.api.nvim_buf_is_valid(term_bufnum) then
     if term_winid and vim.api.nvim_win_is_valid(term_winid) then
       vim.api.nvim_win_close(term_winid, true)
@@ -21,6 +21,15 @@ function M.openSplitTerm()
     term_winid = vim.api.nvim_get_current_win()
     vim.cmd("terminal")
     term_bufnum = vim.api.nvim_get_current_buf()
+  end
+end
+
+function M.closeSplitTerm()
+  if term_bufnum and vim.api.nvim_buf_is_valid(term_bufnum) then
+    if term_winid and vim.api.nvim_win_is_valid(term_winid) then
+      vim.api.nvim_win_close(term_winid, true)
+      term_winid = nil
+    end
   end
 end
 

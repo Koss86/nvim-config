@@ -10,7 +10,9 @@ return {
   vim.keymap.set({ "n", "v" }, "<leader>p", '"_dP', { desc = "Paste over highlighted text w/o replacing register" }),
   vim.keymap.set("n", "<C-d>", "<C-d>zz"),
   vim.keymap.set("n", "<C-u", "<C-u>zz"),
-  vim.keymap.set("i", ";;", "<Esc>", { desc = "Exit Insert Mode" }),
+  vim.keymap.set({ "n", "t" }, ";;", function()
+    require("config.custom").closeSplitTerm()
+  end, { desc = "Exit Term" }),
   vim.keymap.set("n", "<space><space>x", "<cmd>source %<cr>", { desc = "Source Document" }),
   vim.keymap.set("n", "<space>x", "<cmd>.lua<cr>", { desc = "Execute Lua Document" }),
   vim.keymap.set("v", "<space>x", "<cmd>lua<cr>", { desc = "Execute line of Lua Code" }),
@@ -22,7 +24,7 @@ return {
 
   -- Open terminal in new window w/ reusable buffer.
   vim.keymap.set("n", "<leader>tt", function()
-    require("config.custom").openSplitTerm()
+    require("config.custom").toggleSplitTerm()
   end, { desc = "[t]oggle [t]erminal" }),
   --[[  vim.keymap.set("n", "<leader>gu", function()
     require("config.custom").openGitUi()
