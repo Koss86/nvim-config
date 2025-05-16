@@ -16,7 +16,7 @@ return {
     "williamboman/mason-lspconfig.nvim",
     lazy = false,
     opts = {
-      ensure_installed = {},
+      ensure_installed = { "lua_ls", "ols" },
     },
   },
   {
@@ -76,7 +76,7 @@ return {
         init_options = {
           checker_args = "-strict-style",
           collections = {
-            { name = "shared", path = "$HOME/local/Odin" },
+            { name = "shared", path = "$HOME/.local/Odin" },
           },
           enable_hover = true,
           enable_snippets = true,
@@ -95,8 +95,8 @@ return {
           end
 
           if
-            not client:supports_method("textDocument/willSaveWaitUntil")
-            and client:supports_method("textDocument/formatting")
+              not client:supports_method("textDocument/willSaveWaitUntil")
+              and client:supports_method("textDocument/formatting")
           then
             vim.api.nvim_create_autocmd("BufWritePre", {
               buffer = args.buf,

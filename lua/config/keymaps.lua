@@ -1,11 +1,13 @@
 return {
+
   vim.keymap.set("n", "<A-j>", ":m .+1<cr>==", { desc = "Move line down" }),
   vim.keymap.set("n", "<A-k>", ":m .-2<cr>==", { desc = "Move line up" }),
   vim.keymap.set("i", "<A-j>", "<Esc>:m .+1<cr>==gi", { desc = "Move line down" }),
   vim.keymap.set("i", "<A-k>", "<Esc>:m .-2<cr>==gi", { desc = "Move line up" }),
   vim.keymap.set("v", "<A-j>", ":m '>+1<cr>gv=gv", { desc = "Move selection down" }),
   vim.keymap.set("v", "<A-k>", ":m '<-2<cr>gv=gv", { desc = "Move selection up" }),
-  vim.keymap.set({ "n", "v" }, "<leader>p", '"_dP'),
+
+  vim.keymap.set({ "n", "v" }, "<leader>p", '"_dP', { desc = "Paste over highlighted text w/o replacing register" }),
   vim.keymap.set("n", "<C-d>", "<C-d>zz"),
   vim.keymap.set("n", "<C-u", "<C-u>zz"),
   vim.keymap.set("i", ";;", "<Esc>", { desc = "Exit Insert Mode" }),
@@ -13,13 +15,19 @@ return {
   vim.keymap.set("n", "<space>x", "<cmd>.lua<cr>", { desc = "Execute Lua Document" }),
   vim.keymap.set("v", "<space>x", "<cmd>lua<cr>", { desc = "Execute line of Lua Code" }),
 
+  -- Compile a debug binary for C
+  vim.keymap.set("n", "<leader>mf", function()
+    require("config.custom").MakeFile()
+  end, { desc = "[m]ake [f]ile" }),
+
   -- Open terminal in new window w/ reusable buffer.
   vim.keymap.set("n", "<leader>tt", function()
     require("config.custom").openSplitTerm()
   end, { desc = "[t]oggle [t]erminal" }),
-  vim.keymap.set("n", "<leader>gu", function()
+  --[[  vim.keymap.set("n", "<leader>gu", function()
     require("config.custom").openGitUi()
   end, { desc = "Toggle [g]it [u]i" }),
+  ]]
 
   vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>"),
   vim.keymap.set("n", "<leader>d", vim.diagnostic.setloclist, { desc = "Open [d]iagnostic quickfix list" }),
