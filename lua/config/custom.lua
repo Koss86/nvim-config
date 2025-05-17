@@ -42,4 +42,9 @@ function M.openGitUi()
   end
 end
 
+function M.gcc()
+  local file = vim.fn.expand("%:p")
+  vim.fn.execute("!gcc " .. file .. " -g")
+end
+
 return M

@@ -13,6 +13,10 @@ return {
   vim.keymap.set("n", "<space>x", "<cmd>.lua<cr>", { desc = "Execute Lua Document" }),
   vim.keymap.set("v", "<space>x", "<cmd>lua<cr>", { desc = "Execute line of Lua Code" }),
 
+  vim.keymap.set("n", "<leader>gcc", function()
+    require("config.custom").gcc()
+  end),
+
   -- Open terminal in new window w/ reusable buffer.
   vim.keymap.set("n", "<leader>tt", function()
     require("config.custom").openSplitTerm()
