@@ -18,9 +18,9 @@ return {
   vim.keymap.set("v", "<space>x", "<cmd>lua<cr>", { desc = "Execute line of Lua Code" }),
 
   -- Compile a debug binary for C
-  vim.keymap.set("n", "<leader>mf", function()
-    require("config.custom").MakeFile()
-  end, { desc = "[m]ake [f]ile" }),
+  vim.keymap.set("n", "<leader>gcc", function()
+    require("config.custom").gcc()
+  end, { desc = "Compile debug binary" }),
 
   -- Open terminal in new window w/ reusable buffer.
   vim.keymap.set("n", "<leader>tt", function()
