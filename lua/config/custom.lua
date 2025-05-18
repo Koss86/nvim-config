@@ -51,9 +51,23 @@ function M.openGitUi()
   end
 end
 
-function M.gcc()
-  local file = vim.fn.expand("%:p")
-  vim.fn.execute("!gcc -g " .. file)
+function M.makefile()
+  if term_bufnum and vim.api.nvim_buf_is_valid(term_bufnum) then
+    if term_winid and vim.api.nvim_win_is_valid(term_winid) then
+      vim.fn.execute("!make")
+    else
+      vim.cmd("7split")
+      term_winid = vim.api.nvim_get_current_win()
+      vim.api.nvim_win_set_buf(term_winid, term_bufnum)
+      vim.fn.execute("!make")
+    end
+  else
+    vim.cmd("7split")
+    term_winid = vim.api.nvim_get_current_win()
+    vim.cmd("terminal")
+    term_bufnum = vim.api.nvim_get_current_buf()
+    vim.fn.execute("!make")
+  end
 end
 
 return M
