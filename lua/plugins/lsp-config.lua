@@ -1,7 +1,6 @@
----@diagnostic disable: need-check-nil
 return {
   {
-    "williamboman/mason.nvim",
+    "mason-org/mason.nvim",
     opts = {
       ui = {
         icons = {
@@ -13,22 +12,27 @@ return {
     },
   },
   {
-    "williamboman/mason-lspconfig.nvim",
+    "mason-org/mason-lspconfig.nvim",
     lazy = false,
     opts = {
-      ensure_installed = { "lua_ls", "ols" },
+      ensure_installed = { "lua_ls", "clangd", "ols", "zls" },
+    },
+    dependencies = {
+      "mason-org/mason.nvim",
     },
   },
   {
     "neovim/nvim-lspconfig",
     dependencies = {
-      "folke/lazydev.nvim",
-      ft = "lua", -- only load on lua files
-      opts = {
-        library = {
-          -- See the configuration section for more details
-          -- Load luvit types when the `vim.uv` word is found
-          { path = "${3rd}/luv/library", words = { "vim%.uv" } },
+      {
+        "folke/lazydev.nvim",
+        ft = "lua", -- only load on lua files
+        opts = {
+          library = {
+            -- See the configuration section for more details
+            -- Load luvit types when the `vim.uv` word is found
+            { path = "${3rd}/luv/library", words = { "vim%.uv" } },
+          },
         },
       },
     },
@@ -37,20 +41,46 @@ return {
       local capabilities = require("cmp_nvim_lsp").default_capabilities()
       local lspconfig = require("lspconfig")
 
-      lspconfig.clangd.setup({
-        capabilities = capabilities,
-        --init_options = {
-        -- clangdFileStatus = true,
-        -- usePlaceholders = true,
-        -- completeUnimported = true,
-        -- clangdInlayHints = {
-        --  parameterHints = true,
-        -- chainingHints = true,
-        -- surroundingHints = true,
-        --  },
-        -- },
+      vim.lsp.config("clangd", {
+        settings = {
+          capabilities = capabilities,
+          init_options = {
+            clangdFileStatus = true,
+            usePlaceholders = true,
+            completeUnimported = true,
+            clangdInlayHints = {
+              parameterHints = true,
+              chainingHints = true,
+              surroundingHints = true,
+            },
+          },
+        },
       })
+      --[[
+      lspconfig.clangd.setup({
+        --capabilities = capabilities,
+        init_options = {
+          clangdFileStatus = true,
+          -- usePlaceholders = true,
+          -- completeUnimported = true,
+          -- clangdInlayHints = {
+          --  parameterHints = true,
+          -- chainingHints = true,
+          -- surroundingHints = true,
+          --  },
+        },
+      })
+      ]]
 
+      vim.lsp.config("lua_ls", {
+        settings = {
+          capabilities = capabilities,
+          telemetry = {
+            enable = false,
+          },
+        },
+      })
+      --[[
       lspconfig.lua_ls.setup({
         cmd = { "lua-language-server" },
         filetypes = { "lua" },
@@ -70,20 +100,23 @@ return {
           },
         },
       })
+      ]]
 
-      lspconfig.ols.setup({
-        capabilities = capabilities,
-        init_options = {
-          checker_args = "-strict-style",
-          collections = {
-            { name = "shared", path = "$HOME/.local/Odin" },
+      vim.lsp.config("ols", {
+        settings = {
+          capabilities = capabilities,
+          init_options = {
+            checker_args = "-strict-style",
+            collections = {
+              { name = "shared", path = "$HOME/.local/Odin" },
+            },
+            enable_hover = true,
+            enable_snippets = true,
+            enable_semantic_tokens = true,
+            enable_document_symbols = true,
+            enable_inlay_hints = true,
+            enable_procedure_snippet = false,
           },
-          enable_hover = true,
-          enable_snippets = true,
-          enable_semantic_tokens = true,
-          enable_document_symbols = true,
-          enable_inlay_hints = true,
-          enable_procedure_snippet = false,
         },
       })
 
