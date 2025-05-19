@@ -1,3 +1,4 @@
+---@diagnostic disable: need-check-nil
 return {
   {
     "mason-org/mason.nvim",
@@ -40,10 +41,9 @@ return {
     config = function()
       local capabilities = require("cmp_nvim_lsp").default_capabilities()
       local lspconfig = require("lspconfig")
-
       vim.lsp.config("clangd", {
         settings = {
-          capabilities = capabilities,
+          -- capabilities = capabilities,
           init_options = {
             clangdFileStatus = true,
             usePlaceholders = true,
@@ -74,9 +74,25 @@ return {
 
       vim.lsp.config("lua_ls", {
         settings = {
+          cmd = { "lua-language-server" },
+          filetypes = { "lua" },
           capabilities = capabilities,
           telemetry = {
             enable = false,
+          },
+          settings = {
+            runtime = {
+              version = "LuaJIT",
+            },
+            diagnostics = {
+              globals = { "vim" },
+            },
+            workspace = {
+              library = vim.api.nvim_get_runtime_file("", true),
+            },
+            telemetry = {
+              enable = false,
+            },
           },
         },
       })
