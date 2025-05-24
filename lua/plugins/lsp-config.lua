@@ -40,7 +40,7 @@ return {
 
     config = function()
       local capabilities = require("cmp_nvim_lsp").default_capabilities()
-      local lspconfig = require("lspconfig")
+      --local lspconfig = require("lspconfig")
       vim.lsp.config("clangd", {
         settings = {
           -- capabilities = capabilities,
@@ -56,21 +56,6 @@ return {
           },
         },
       })
-      --[[
-      lspconfig.clangd.setup({
-        --capabilities = capabilities,
-        init_options = {
-          clangdFileStatus = true,
-          -- usePlaceholders = true,
-          -- completeUnimported = true,
-          -- clangdInlayHints = {
-          --  parameterHints = true,
-          -- chainingHints = true,
-          -- surroundingHints = true,
-          --  },
-        },
-      })
-      ]]
 
       vim.lsp.config("lua_ls", {
         settings = {
@@ -96,27 +81,6 @@ return {
           },
         },
       })
-      --[[
-      lspconfig.lua_ls.setup({
-        cmd = { "lua-language-server" },
-        filetypes = { "lua" },
-        capabilities = capabilities,
-        settings = {
-          runtime = {
-            version = "LuaJIT",
-          },
-          diagnostics = {
-            globals = { "vim" },
-          },
-          workspace = {
-            library = vim.api.nvim_get_runtime_file("", true),
-          },
-          telemetry = {
-            enable = false,
-          },
-        },
-      })
-      ]]
 
       vim.lsp.config("ols", {
         settings = {
@@ -136,6 +100,15 @@ return {
         },
       })
 
+      vim.lsp.config("bashls", {
+        capabilities = capabilities,
+      })
+      vim.lsp.config("pylsp", {
+        capabilities = capabilities,
+      })
+      vim.lsp.config("jsonls", {
+        capabilities = capabilities,
+      })
       vim.api.nvim_create_autocmd("LspAttach", {
         callback = function(args)
           local client = vim.lsp.get_client_by_id(args.data.client_id)
