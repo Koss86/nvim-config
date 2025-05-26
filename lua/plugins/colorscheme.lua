@@ -4,6 +4,7 @@ return {
     lazy = false,
     priority = 1000,
     opts = {
+      transparent = true,
       style = "night",
       styles = {
         comments = { italic = false },
@@ -11,6 +12,8 @@ return {
         functions = { italic = false, bold = true },
         variables = { italic = false, bold = false },
         dim_inactive = true,
+        sidebars = "transparent",
+        floats = "transparent",
       },
       on_colors = function(colors)
         colors.hint = colors.orange
