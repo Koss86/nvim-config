@@ -8,6 +8,7 @@ vim.opt.tabstop = 2
 vim.optsofttabstop = 2
 vim.opt.shiftwidth = 2
 vim.g.mapleader = " "
+vim.opt["guicursor"] = ""
 
 vim.schedule(function()
   vim.opt.clipboard = "unnamedplus"
