@@ -3,6 +3,34 @@ local M = {}
 local term_bufnum = nil
 local term_winid = nil
 
+local git_bufnum = nil
+local work_bufnum = nil
+
+function M.openLazyGit()
+  if git_bufnum and vim.api.nvim_buf_is_valid(git_bufnum) then
+    if work_bufnum and vim.api.nvim_buf_is_valid(work_bufnum) then
+      -- if in lazygit load work file buf else load lazygit buf.
+      if vim.api.nvim_get_current_buf() == git_bufnum then
+        vim.api.nvim_win_set_buf(0, work_bufnum)
+      else
+        work_bufnum = vim.api.nvim_get_current_buf()
+        vim.api.nvim_win_set_buf(0, git_bufnum)
+        vim.fn.feedkeys("i")
+      end
+    else
+      work_bufnum = vim.api.nvim_get_current_buf()
+      vim.api.nvim_win_set_buf(0, git_bufnum)
+      vim.fn.feedkeys("i")
+    end
+  else
+    work_bufnum = vim.api.nvim_get_current_buf()
+    vim.cmd("enew")
+    git_bufnum = vim.api.nvim_get_current_buf()
+    vim.cmd("terminal lazygit")
+    vim.fn.feedkeys("i")
+  end
+end
+
 function M.toggleSplitTerm()
   if term_bufnum and vim.api.nvim_buf_is_valid(term_bufnum) then
     if term_winid and vim.api.nvim_win_is_valid(term_winid) then
