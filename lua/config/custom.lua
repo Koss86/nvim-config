@@ -51,15 +51,6 @@ function M.toggleSplitTerm()
   end
 end
 
-function M.closeSplitTerm()
-  if term_bufnum and vim.api.nvim_buf_is_valid(term_bufnum) then
-    if term_winid and vim.api.nvim_win_is_valid(term_winid) then
-      vim.api.nvim_win_close(term_winid, true)
-      term_winid = nil
-    end
-  end
-end
-
 function M.gcc()
   local file_path = vim.fn.expand("%:p")
   if term_bufnum and vim.api.nvim_buf_is_valid(term_bufnum) then
