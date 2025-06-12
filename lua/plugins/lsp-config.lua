@@ -12,6 +12,7 @@ return {
       },
     },
   },
+
   {
     "mason-org/mason-lspconfig.nvim",
     lazy = false,
@@ -22,16 +23,15 @@ return {
       "mason-org/mason.nvim",
     },
   },
+
   {
     "neovim/nvim-lspconfig",
     dependencies = {
       {
         "folke/lazydev.nvim",
-        ft = "lua", -- only load on lua files
+        ft = "lua",
         opts = {
           library = {
-            -- See the configuration section for more details
-            -- Load luvit types when the `vim.uv` word is found
             { path = "${3rd}/luv/library", words = { "vim%.uv" } },
           },
         },
@@ -43,7 +43,7 @@ return {
       --local lspconfig = require("lspconfig")
       vim.lsp.config("clangd", {
         settings = {
-          -- capabilities = capabilities,
+          --capabilities = capabilities,
           init_options = {
             clangdFileStatus = true,
             usePlaceholders = true,
