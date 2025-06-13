@@ -26,9 +26,9 @@ return {
     require("config.custom").toggleSplitTerm()
   end, { desc = "[t]oggle [t]erminal" }),
 
-  vim.keymap.set("n", "<leader>gu", function()
+  vim.keymap.set("n", "<leader>lg", function()
     require("config.custom").openLazyGit()
-  end, { desc = "Toggle [g]it [u]i" }),
+  end, { desc = "Toggle [l]azy[g]it" }),
 
   vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>"),
   vim.keymap.set("n", "<leader>d", vim.diagnostic.setloclist, { desc = "Open [d]iagnostic quickfix list" }),
