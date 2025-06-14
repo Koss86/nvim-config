@@ -52,7 +52,7 @@ return {
     "catppuccin/nvim",
     name = "catpuccin",
     priority = 1000,
-    lazy = false,
+    lazy = true,
     config = function()
       require("catppuccin").setup({
         flavour = "mocha", -- latte, frappe, macchiato, mocha
@@ -109,7 +109,7 @@ return {
   {
     "rebelot/kanagawa.nvim",
     priority = 1000,
-    lazy = true,
+    lazy = false,
     config = function()
       require("kanagawa").setup({
         compile = false,  -- enable compiling the colorscheme
