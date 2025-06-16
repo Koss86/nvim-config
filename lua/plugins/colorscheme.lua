@@ -1,7 +1,7 @@
 return {
   {
     "folke/tokyonight.nvim",
-    lazy = true,
+    lazy = false,
     priority = 1000,
     opts = {
       transparent = true,
@@ -109,7 +109,7 @@ return {
   {
     "rebelot/kanagawa.nvim",
     priority = 1000,
-    lazy = false,
+    lazy = true,
     config = function()
       require("kanagawa").setup({
         compile = false,  -- enable compiling the colorscheme
