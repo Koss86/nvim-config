@@ -27,7 +27,7 @@ vim.opt.smartcase = true
 vim.opt.signcolumn = "auto"
 vim.opt.list = true
 vim.opt.listchars = { tab = "  ", trail = "·", nbsp = "␣" }
-vim.opt.cursorline = false
+vim.opt.cursorline = true
 vim.opt.scrolloff = 15
 vim.opt.inccommand = "split"
 vim.opt.confirm = true
