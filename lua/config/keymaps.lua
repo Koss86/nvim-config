@@ -1,5 +1,15 @@
 return {
 
+  -- LSP related
+  vim.keymap.set("n", "K", function()
+    vim.lsp.buf.hover({ border = "rounded" })
+  end),
+  vim.keymap.set("n", "<leader>gd", "<C-w><C-]>", { desc = "[g]o to [d]efinition (opens in split)" }),
+  vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, { desc = "Display [c]ode [a]ctions" }),
+  vim.keymap.set("n", "<leader>m", "gg=G<C-o>", { desc = "For[m]at Document" }),
+  vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, {}),
+
+  -- Move line of text up or down
   vim.keymap.set("n", "<A-j>", ":m .+1<cr>==", { desc = "Move line down" }),
   vim.keymap.set("n", "<A-k>", ":m .-2<cr>==", { desc = "Move line up" }),
   vim.keymap.set("i", "<A-j>", "<Esc>:m .+1<cr>==gi", { desc = "Move line down" }),

@@ -42,19 +42,42 @@ return {
       local capabilities = require("cmp_nvim_lsp").default_capabilities()
       --local lspconfig = require("lspconfig")
       vim.lsp.config("clangd", {
-        settings = {
-          --capabilities = capabilities,
-          init_options = {
-            clangdFileStatus = true,
-            usePlaceholders = true,
-            completeUnimported = true,
-            clangdInlayHints = {
-              parameterHints = true,
-              chainingHints = true,
-              surroundingHints = true,
+        capabilities = capabilites,
+        cmd = { "clangd" },
+        filetypes = { "c", "cpp", "objc", "objcpp", "cuda", "proto" },
+        root_markers = {
+          ".clangd",
+          ".clang-tidy",
+          ".clang-format",
+          "compile_commands.json",
+          "compile_flags.txt",
+          "configure.ac", -- AutoTools
+          ".git",
+        },
+        capabilities = {
+          textDocument = {
+            completion = {
+              editsNearCursor = true,
             },
           },
+          offsetEncoding = { "utf-8", "utf-16" },
         },
+        ---@param client vim.lsp.Client
+        ---@param init_result ClangdInitializeResult
+        on_init = function(client, init_result)
+          if init_result.offsetEncoding then
+            client.offset_encoding = init_result.offsetEncoding
+          end
+        end,
+        on_attach = function()
+          vim.api.nvim_buf_create_user_command(0, "LspClangdSwitchSourceHeader", function()
+            switch_source_header(0)
+          end, { desc = "Switch between source/header" })
+
+          vim.api.nvim_buf_create_user_command(0, "LspClangdShowSymbolInfo", function()
+            symbol_info()
+          end, { desc = "Show symbol info" })
+        end,
       })
 
       vim.lsp.config("lua_ls", {
@@ -115,28 +138,8 @@ return {
           if client:supports_method("textDocument/implementation") then
             vim.keymap.set("n", "<leader>fi", vim.lsp.buf.implementation, { desc = "Go to Implementation" })
           end
-
-          if
-              not client:supports_method("textDocument/willSaveWaitUntil")
-              and client:supports_method("textDocument/formatting")
-          then
-            vim.api.nvim_create_autocmd("BufWritePre", {
-              buffer = args.buf,
-              callback = function()
-                vim.lsp.buf.format({ bufnr = args.buf, id = client.id })
-              end,
-            })
-          end
         end,
       })
-
-      vim.keymap.set("n", "K", function()
-        vim.lsp.buf.hover({ border = "rounded" })
-      end)
-      vim.keymap.set("n", "<leader>gd", "<C-w><C-]>", { desc = "[g]o to [d]efinition (opens in split)" })
-      vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, { desc = "Display [c]ode [a]ctions" })
-      vim.keymap.set("n", "<leader>m", vim.lsp.buf.format, { desc = "For[m]at Document" })
-      vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, {})
     end,
   },
 }
