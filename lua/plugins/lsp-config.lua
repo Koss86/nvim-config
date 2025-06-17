@@ -42,7 +42,6 @@ return {
       local capabilities = require("cmp_nvim_lsp").default_capabilities()
       --local lspconfig = require("lspconfig")
       vim.lsp.config("clangd", {
-        capabilities = capabilites,
         cmd = { "clangd" },
         filetypes = { "c", "cpp", "objc", "objcpp", "cuda", "proto" },
         root_markers = {
@@ -138,6 +137,21 @@ return {
           if client:supports_method("textDocument/implementation") then
             vim.keymap.set("n", "<leader>fi", vim.lsp.buf.implementation, { desc = "Go to Implementation" })
           end
+
+          --[[
+          if
+              not client:supports_method("textDocument/willSaveWaitUntil")
+              and client:supports_method("textDocument/formatting")
+          then
+            vim.api.nvim_create_autocmd("BufWritePre", {
+              buffer = args.buf,
+              callback = function()
+                vim.lsp.buf.format({ bufnr = args.buf, id = client.id })
+              end,
+            })
+          end
+          ]]
+
         end,
       })
     end,
