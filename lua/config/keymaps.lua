@@ -33,9 +33,9 @@ return {
   end, { desc = "Compile debug binary" }),
 
   -- Open terminal in new window w/ reusable buffer.
-  vim.keymap.set({ "n", "t" }, "tt", function()
+  vim.keymap.set({ "n", "t" }, "<leader>ot", function()
     require("config.custom").toggleSplitTerm()
-  end, { desc = "[t]oggle [t]erminal" }),
+  end, { desc = "T[o]ggle [t]erminal" }),
 
   vim.keymap.set("n", "<leader>lg", function()
     require("config.custom").openLazyGit()
