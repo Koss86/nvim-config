@@ -17,7 +17,7 @@ return {
   vim.keymap.set("v", "<A-j>", ":m '>+1<cr>gv=gv", { desc = "Move selection down" }),
   vim.keymap.set("v", "<A-k>", ":m '<-2<cr>gv=gv", { desc = "Move selection up" }),
 
-  vim.keymap.set("n", "<leader>lf", "vf{%", { desc = "[h]ighlight [f]unction" }),
+  vim.keymap.set("n", "<leader>lf", "0vf{%", { desc = "[h]ighlight [f]unction" }),
   vim.keymap.set({ "n", "v" }, "<leader>p", '"_dP', { desc = "Paste over highlighted text w/o replacing register" }),
 
   vim.keymap.set("n", "<C-d>", "<C-d>zz"),
