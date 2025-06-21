@@ -6,7 +6,7 @@ return {
   end),
   vim.keymap.set("n", "<leader>gd", "<C-w><C-]>", { desc = "[g]o to [d]efinition (opens in split)" }),
   vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, { desc = "Display [c]ode [a]ctions" }),
-  vim.keymap.set("n", "<leader>m", "gg=G<C-o>", { desc = "For[m]at Document" }),
+  vim.keymap.set("n", "<leader>m", "gg=G<C-o>zz", { desc = "For[m]at Document" }),
   vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, {}),
 
   -- Move line of text up or down
