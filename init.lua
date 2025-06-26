@@ -4,9 +4,9 @@ vim.opt.relativenumber = true
 vim.opt.mouse = "a"
 vim.opt.showmode = false
 vim.opt.expandtab = true
-vim.opt.tabstop = 2
-vim.optsofttabstop = 2
-vim.opt.shiftwidth = 2
+vim.opt.tabstop = 4
+vim.optsofttabstop = 4
+vim.opt.shiftwidth = 4
 vim.g.mapleader = " "
 vim.opt["guicursor"] = "n-v:block-blinkon0,i-t-c-ci:block-blinkwait150-blinkon250-blinkoff250"
 
