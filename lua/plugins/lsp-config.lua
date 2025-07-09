@@ -104,7 +104,6 @@ return {
             vim.keymap.set("n", "<leader>fi", vim.lsp.buf.implementation, { desc = "Go to Implementation" })
           end
 
-          --[[
           if
               not client:supports_method("textDocument/willSaveWaitUntil")
               and client:supports_method("textDocument/formatting")
@@ -116,7 +115,6 @@ return {
               end,
             })
           end
-          ]]
 
         end,
       })
