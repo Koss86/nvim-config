@@ -69,7 +69,6 @@ return {
           },
         },
       })
-
       vim.lsp.config("ols", {
         settings = {
           capabilities = capabilities,
@@ -101,7 +100,12 @@ return {
         callback = function(args)
           local client = vim.lsp.get_client_by_id(args.data.client_id)
           if client:supports_method("textDocument/implementation") then
-            vim.keymap.set("n", "<leader>fi", vim.lsp.buf.implementation, { desc = "Go to Implementation" })
+            vim.keymap.set(
+              "n",
+              "<leader>fi",
+              vim.lsp.buf.implementation,
+              { desc = "Go to Implementation" }
+            )
           end
 
           if
@@ -115,7 +119,6 @@ return {
               end,
             })
           end
-
         end,
       })
     end,
