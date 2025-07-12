@@ -40,12 +40,13 @@ return {
 
     config = function()
       local capabilities = require("cmp_nvim_lsp").default_capabilities()
-      --local lspconfig = require("lspconfig")
-      vim.lsp.config("clangd", {
+      local lsp = vim.lsp
+
+      lsp.config("clangd", {
         capabilities = capabilities,
       })
 
-      vim.lsp.config("lua_ls", {
+      lsp.config("lua_ls", {
         settings = {
           cmd = { "lua-language-server" },
           filetypes = { "lua" },
@@ -69,7 +70,7 @@ return {
           },
         },
       })
-      vim.lsp.config("ols", {
+      lsp.config("ols", {
         settings = {
           capabilities = capabilities,
           init_options = {
@@ -87,13 +88,13 @@ return {
         },
       })
 
-      vim.lsp.config("bashls", {
+      lsp.config("bashls", {
         capabilities = capabilities,
       })
-      vim.lsp.config("pylsp", {
+      lsp.config("pylsp", {
         capabilities = capabilities,
       })
-      vim.lsp.config("jsonls", {
+      lsp.config("jsonls", {
         capabilities = capabilities,
       })
       vim.api.nvim_create_autocmd("LspAttach", {
