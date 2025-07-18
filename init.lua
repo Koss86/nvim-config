@@ -8,12 +8,8 @@ vim.opt.tabstop = 4
 vim.optsofttabstop = 4
 vim.opt.shiftwidth = 4
 vim.g.mapleader = " "
-vim.opt["guicursor"] = "n-v:block-blinkon0,i-t-c-ci:block-blinkwait150-blinkon250-blinkoff250"
-
-vim.schedule(function()
-  vim.opt.clipboard = "unnamedplus"
-end)
-
+vim.opt["guicursor"] =
+"n-v:block-blinkon0,i-t-c-ci:block-blinkwait150-blinkon250-blinkoff250"
 vim.opt.updatetime = 250
 vim.opt.timeoutlen = 300
 vim.opt.splitbelow = true
@@ -32,6 +28,10 @@ vim.opt.scrolloff = 15
 vim.opt.inccommand = "split"
 vim.opt.confirm = true
 
+vim.schedule(function()
+  vim.opt.clipboard = "unnamedplus"
+end)
+
 --[[ Toggle between two different colorschemes
 vim.keymap.set("n", "<leader>cs", function()
   if vim.g.colors_name == "tokyonight-night" then
@@ -44,7 +44,10 @@ end, { desc = "Toggle [c]olor[s]cheme" })
 
 vim.api.nvim_create_autocmd("TextYankPost", {
   desc = "Highlight when yanking (copying) text",
-  group = vim.api.nvim_create_augroup("kickstart-highlight-yank", { clear = true }),
+  group = vim.api.nvim_create_augroup(
+    "kickstart-highlight-yank",
+    { clear = true }
+  ),
   callback = function()
     vim.highlight.on_yank()
   end,

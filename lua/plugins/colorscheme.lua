@@ -36,14 +36,14 @@ return {
           styles = {
             comments = "NONE",
             functions = "bold",
-            keywords = "italic, bold",
+            keywords = "bold",
             variables = "",
             conditionals = "bold",
             constants = "",
             numbers = "",
             operators = "bold",
             strings = "NONE",
-            types = "NONE",
+            types = "bold",
           },
         },
       })
