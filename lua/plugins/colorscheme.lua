@@ -1,7 +1,7 @@
 return {
   {
     "folke/tokyonight.nvim",
-    lazy = false,
+    lazy = true,
     priority = 1000,
     opts = {
       transparent = true,
@@ -27,11 +27,12 @@ return {
   {
     "projekt0n/github-nvim-theme",
     name = "github-theme",
-    lazy = true,
+    lazy = false,
     priority = 1000,
     config = function()
       require("github-theme").setup({
         options = {
+          transparent = true,
           styles = {
             comments = "NONE",
             functions = "bold",
@@ -46,6 +47,7 @@ return {
           },
         },
       })
+      vim.cmd("colorscheme github_dark_dimmed")
     end,
   },
   {
