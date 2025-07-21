@@ -95,9 +95,14 @@ return {
   ),
 
   -- Compile a debug binary for C
-  vim.keymap.set("n", "gcc", function()
+  vim.keymap.set("n", "<leader>gcc", function()
     require("config.custom").gcc()
   end, { desc = "Compile debug binary" }),
+
+  -- Compile and run .zig file
+  vim.keymap.set("n", "<leader>run", function()
+    require("config.custom").zig_build()
+  end, { desc = "Run zig file" }),
 
   -- Open terminal in new window w/ reusable buffer.
   vim.keymap.set({ "n", "t" }, "<leader>ot", function()
