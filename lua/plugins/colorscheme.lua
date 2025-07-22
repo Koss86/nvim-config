@@ -1,7 +1,7 @@
 return {
   {
     "folke/tokyonight.nvim",
-    lazy = true,
+    lazy = false,
     priority = 1000,
     opts = {
       transparent = true,
@@ -27,7 +27,7 @@ return {
   {
     "projekt0n/github-nvim-theme",
     name = "github-theme",
-    lazy = false,
+    lazy = true,
     priority = 1000,
     config = function()
       require("github-theme").setup({
