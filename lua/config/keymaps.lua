@@ -16,7 +16,12 @@ return {
     vim.lsp.buf.code_action,
     { desc = "Display [c]ode [a]ctions" }
   ),
-  --vim.keymap.set("n", "<leader>m", "gg=G<C-o>zz", { desc = "For[m]at Document" }),
+  -- vim.keymap.set(
+  --   "n",
+  --   "<leader>m",
+  --   "gg=G<C-o>zz",
+  --   { desc = "For[m]at Document" }
+  -- ),
   vim.keymap.set(
     "n",
     "<leader>m",
@@ -72,8 +77,18 @@ return {
     { desc = "Paste over highlighted text w/o replacing register" }
   ),
 
-  vim.keymap.set("n", "<C-d>", "<C-d>zz"),
-  vim.keymap.set("n", "<C-u", "<C-u>zz"),
+  vim.keymap.set(
+    "n",
+    "<C-d>",
+    "<C-d>zz",
+    { desc = "Jump down w/ view centering" }
+  ),
+  vim.keymap.set(
+    "n",
+    "<C-u",
+    "<C-u>zz",
+    { desc = "Jump up w/ view centering" }
+  ),
 
   vim.keymap.set(
     "n",
