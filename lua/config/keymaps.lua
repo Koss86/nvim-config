@@ -16,12 +16,14 @@ return {
     vim.lsp.buf.code_action,
     { desc = "Display [c]ode [a]ctions" }
   ),
+
   -- vim.keymap.set(
   --   "n",
   --   "<leader>m",
   --   "gg=G<C-o>zz",
   --   { desc = "For[m]at Document" }
   -- ),
+
   vim.keymap.set(
     "n",
     "<leader>m",
@@ -115,9 +117,9 @@ return {
   end, { desc = "Compile debug binary" }),
 
   -- Compile and run .zig file
-  vim.keymap.set("n", "<leader>run", function()
+  vim.keymap.set("n", "<leader>zig", function()
     require("config.custom").zig_build()
-  end, { desc = "Run zig file" }),
+  end, { desc = "Build zig file" }),
 
   -- Open terminal in new window w/ reusable buffer.
   vim.keymap.set({ "n", "t" }, "<leader>ot", function()
