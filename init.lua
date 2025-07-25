@@ -2,7 +2,7 @@ vim.g.have_nerd_font = true
 vim.opt.number = true
 vim.opt.relativenumber = true
 vim.opt.mouse = "a"
-vim.opt.showmode = true
+vim.opt.showmode = false
 vim.opt.expandtab = true
 vim.opt.tabstop = 4
 vim.optsofttabstop = 4
@@ -29,35 +29,25 @@ vim.opt.inccommand = "split"
 vim.opt.confirm = true
 
 vim.schedule(function()
-  vim.opt.clipboard = "unnamedplus"
+    vim.opt.clipboard = "unnamedplus"
 end)
 
---[[ Toggle between two different colorschemes
-vim.keymap.set("n", "<leader>cs", function()
-  if vim.g.colors_name == "tokyonight-night" then
-    vim.cmd("colorscheme github_dark_dimmed")
-  else
-    vim.cmd("colorscheme tokyonight")
-  end
-end, { desc = "Toggle [c]olor[s]cheme" })
-]]
-
 vim.api.nvim_create_autocmd("TextYankPost", {
-  desc = "Highlight when yanking (copying) text",
-  group = vim.api.nvim_create_augroup(
-    "kickstart-highlight-yank",
-    { clear = true }
-  ),
-  callback = function()
-    vim.highlight.on_yank()
-  end,
+    desc = "Highlight when yanking (copying) text",
+    group = vim.api.nvim_create_augroup(
+        "kickstart-highlight-yank",
+        { clear = true }
+    ),
+    callback = function()
+        vim.highlight.on_yank()
+    end,
 })
 
 vim.diagnostic.config({
-  virtual_text = true,
-  signs = true,
-  underline = true,
-  update_in_insert = false,
+    virtual_text = true,
+    signs = true,
+    underline = true,
+    update_in_insert = false,
 })
 
 require("config.lazy")
