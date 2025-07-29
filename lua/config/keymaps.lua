@@ -121,6 +121,11 @@ return {
     require("config.custom").zig_build()
   end, { desc = "Build zig file" }),
 
+  -- Build Project
+  vim.keymap.set("n", "<leader>make", function()
+    require("config.custom").make_project()
+  end, { desc = "Make Project" }),
+
   -- Open terminal in new window w/ reusable buffer.
   vim.keymap.set({ "n", "t" }, "<leader>ot", function()
     require("config.custom").toggleSplitTerm()

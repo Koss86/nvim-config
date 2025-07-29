@@ -41,7 +41,7 @@ return {
       lualine_c = {},
       lualine_x = {},
       lualine_y = {},
-      lualine_z = { "mode" },
+      lualine_z = { "lsp_status" },
     },
     inactive_sections = {
       lualine_a = {},
@@ -54,7 +54,7 @@ return {
     tabline = {
       lualine_a = { "mode" },
       lualine_b = { "branch", "diff", "diagnostics" },
-      lualine_c = { "lsp_status", "filename" },
+      lualine_c = { "filename" },
       lualine_x = { "encoding", "fileformat", "filetype" },
       lualine_y = { "progress" },
       lualine_z = { "location" },
