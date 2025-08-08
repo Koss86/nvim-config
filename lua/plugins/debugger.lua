@@ -9,9 +9,7 @@ return {
       library = { "nvim-dap-ui" },
     })
 
-    local dap, dapui = require("dap"), require("dapui")
-
-    dapui.setup({
+    require("dapui").setup({
       controls = {
         element = "repl",
         enabled = true,
@@ -93,55 +91,78 @@ return {
       },
     })
 
-    dap.adapters.codelldb = {
+    require("dap").adapters.codelldb = {
       type = "executable",
       command = vim.fn.stdpath("data") .. "/mason/bin/codelldb",
       -- may need to enable on laptop, but I use wsl so we'll see.
       -- detached = false,
     }
 
-    dap.configurations.c = {
+    require("dap").configurations.c = {
       {
         name = "Launch file",
         type = "codelldb",
         request = "launch",
         program = function()
-          return vim.fn.input("Path to executable: ", vim.fn.getcwd() .. "/", "file")
+          return vim.fn.input(
+            "Path to executable: ",
+            vim.fn.getcwd() .. "/",
+            "file"
+          )
         end,
         cwd = "${workspaceFolder}",
         stopOnEntry = false,
       },
     }
 
-    dap.configurations.odin = {
+    require("dap").configurations.odin = {
       {
         name = "Launch file",
         type = "codelldb",
         request = "launch",
         program = function()
-          return vim.fn.input("Path to executable: ", vim.fn.getcwd() .. "/", "file")
+          return vim.fn.input(
+            "Path to executable: ",
+            vim.fn.getcwd() .. "/",
+            "file"
+          )
         end,
         cwd = "${workspaceFolder}",
         stopOnEntry = false,
       },
     }
 
-    dap.listeners.before.attach.dapui_config = function()
-      dapui.open()
+    require("dap").listeners.before.attach.dapui_config = function()
+      require("dapui").open()
     end
-    dap.listeners.before.launch.dapui_config = function()
-      dapui.open()
+    require("dap").listeners.before.launch.dapui_config = function()
+      require("dapui").open()
     end
-    dap.listeners.before.event_terminated.dapui_config = function()
-      dapui.close()
+    require("dap").listeners.before.event_terminated.dapui_config = function()
+      require("dapui").close()
     end
-    dap.listeners.before.event_exited.dapui_config = function()
-      dapui.close()
+    require("dap").listeners.before.event_exited.dapui_config = function()
+      require("dapui").close()
     end
 
-    vim.keymap.set("n", "<leader>tb", dap.toggle_breakpoint, { desc = "[t]oggle [b]reakpoint" })
-    vim.keymap.set("n", "<leader>dc", dap.continue, { desc = "[d]ebugger [c]ontinue/start" })
-    vim.keymap.set("n", "<leader>sd", "<cmd>DapTerminate<cr>", { desc = "[s]top [d]ebugger" })
+    vim.keymap.set(
+      "n",
+      "<leader>tb",
+      require("dap").toggle_breakpoint,
+      { desc = "[t]oggle [b]reakpoint" }
+    )
+    vim.keymap.set(
+      "n",
+      "<leader>dc",
+      require("dap").continue,
+      { desc = "[d]ebugger [c]ontinue/start" }
+    )
+    vim.keymap.set(
+      "n",
+      "<leader>sd",
+      "<cmd>DapTerminate<cr>",
+      { desc = "[s]top [d]ebugger" }
+    )
     vim.keymap.set("n", "N", require("dap").step_over)
     vim.keymap.set("n", "<leader>i", require("dap").step_into)
     vim.keymap.set("n", "<leader>o", require("dap").step_out)

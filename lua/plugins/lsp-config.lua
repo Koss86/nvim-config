@@ -1,6 +1,15 @@
 ---@diagnostic disable: need-check-nil
 return {
   {
+    vim.diagnostic.config({
+      virtual_text = true,
+      signs = true,
+      underline = true,
+      update_in_insert = false,
+    }),
+  },
+
+  {
     "mason-org/mason.nvim",
     opts = {
       ui = {
@@ -39,18 +48,17 @@ return {
     },
 
     config = function()
-      local capabilities = require("cmp_nvim_lsp").default_capabilities()
       local lsp = vim.lsp
 
       lsp.config("clangd", {
-        capabilities = capabilities,
+        capabilities = require("cmp_nvim_lsp").default_capabilities(),
       })
 
       lsp.config("lua_ls", {
         settings = {
           cmd = { "lua-language-server" },
           filetypes = { "lua" },
-          capabilities = capabilities,
+          capabilities = require("cmp_nvim_lsp").default_capabilities(),
           telemetry = {
             enable = false,
           },
@@ -72,7 +80,7 @@ return {
       })
       lsp.config("ols", {
         settings = {
-          capabilities = capabilities,
+          capabilities = require("cmp_nvim_lsp").default_capabilities(),
           init_options = {
             checker_args = "-strict-style",
             collections = {
@@ -89,13 +97,13 @@ return {
       })
 
       lsp.config("bashls", {
-        capabilities = capabilities,
+        capabilities = require("cmp_nvim_lsp").default_capabilities(),
       })
       lsp.config("pylsp", {
-        capabilities = capabilities,
+        capabilities = require("cmp_nvim_lsp").default_capabilities(),
       })
       lsp.config("jsonls", {
-        capabilities = capabilities,
+        capabilities = require("cmp_nvim_lsp").default_capabilities(),
       })
       vim.api.nvim_create_autocmd("LspAttach", {
         callback = function(args)

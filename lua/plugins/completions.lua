@@ -4,7 +4,7 @@ return {
   },
   {
     "L3MON4D3/LuaSnip",
-    version = "v2.3.0",
+    version = "v2.4.0",
     dependencies = {
       "saadparwaiz1/cmp_luasnip",
       "rafamadriz/friendly-snippets",
@@ -14,28 +14,26 @@ return {
     "hrsh7th/nvim-cmp",
 
     config = function()
-      local cmp = require("cmp")
-
       require("luasnip.loaders.from_vscode").lazy_load()
 
-      cmp.setup({
+      require("cmp").setup({
         snippet = {
           expand = function(args)
             require("luasnip").lsp_expand(args.body)
           end,
         },
         window = {
-          completion = cmp.config.window.bordered(),
-          documentation = cmp.config.window.bordered(),
+          completion = require("cmp").config.window.bordered(),
+          documentation = require("cmp").config.window.bordered(),
         },
-        mapping = cmp.mapping.preset.insert({
-          ["<C-b>"] = cmp.mapping.scroll_docs(-4),
-          ["<C-f>"] = cmp.mapping.scroll_docs(4),
-          ["<C-Space>"] = cmp.mapping.complete(),
-          ["<C-a>"] = cmp.mapping.abort(),
-          ["<CR>"] = cmp.mapping.confirm({ select = false }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
+        mapping = require("cmp").mapping.preset.insert({
+          ["<C-b>"] = require("cmp").mapping.scroll_docs(-4),
+          ["<C-f>"] = require("cmp").mapping.scroll_docs(4),
+          ["<C-Space>"] = require("cmp").mapping.complete(),
+          ["<C-a>"] = require("cmp").mapping.abort(),
+          ["<CR>"] = require("cmp").mapping.confirm({ select = false }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
         }),
-        sources = cmp.config.sources({
+        sources = require("cmp").config.sources({
           { name = "nvim_lsp" },
           { name = "luasnip" },
         }, { { name = "buffer" } }),
