@@ -55,12 +55,28 @@ return {
       require("harpoon"):list():select(4)
     end, { desc = "Harpoon 4" })
 
-    vim.keymap.set("n", "<C-S-P>", function()
-      require("harpoon"):list():prev()
-    end)
+    vim.keymap.set("n", "<leader><leader>h", function()
+      require("harpoon"):list():select(5)
+    end, { desc = "Harpoon 5" })
 
-    vim.keymap.set("n", "<C-S-N>", function()
-      require("harpoon"):list():next()
-    end)
+    vim.keymap.set("n", "<leader><leader>n", function()
+      require("harpoon"):list():select(6)
+    end, { desc = "Harpoon 6" })
+
+    vim.keymap.set("n", "<leader><leader>u", function()
+      require("harpoon"):list():select(7)
+    end, { desc = "Harpoon 7" })
+
+    vim.keymap.set("n", "<leader><leader>y", function()
+      require("harpoon"):list():select(8)
+    end, { desc = "Harpoon 8" })
+
+    -- vim.keymap.set("n", "<C-S-P>", function()
+    --   require("harpoon"):list():prev()
+    -- end)
+    --
+    -- vim.keymap.set("n", "<C-S-N>", function()
+    --   require("harpoon"):list():next()
+    -- end)
   end,
 }
