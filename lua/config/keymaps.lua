@@ -36,6 +36,16 @@ return {
   map.set("i", "<A-k>", "<Esc>:m .-2<cr>==gi", { desc = "Move line up" }),
   map.set("v", "<A-j>", ":m '>+1<cr>gv=gv", { desc = "Move selection down" }),
   map.set("v", "<A-k>", ":m '<-2<cr>gv=gv", { desc = "Move selection up" }),
+
+  map.set("n", "<C-d>", "<C-d>zz", { desc = "Jump down w/ view centering" }),
+  map.set("n", "<C-u", "<C-u>zz", { desc = "Jump up w/ view centering" }),
+  map.set("n", "<C-h>", "<C-w><C-h>", { desc = "Move focus left" }),
+  map.set("n", "<C-l>", "<C-w><C-l>", { desc = "Move focus right" }),
+  map.set("n", "<C-j>", "<C-w><C-j>", { desc = "Move focus down" }),
+  map.set("n", "<C-k>", "<C-w><C-k>", { desc = "Move focus up" }),
+  map.set("t", ";;", "<C-\\><C-n>", { desc = "Exit Terminal Mode" }),
+  map.set("i", ";;", "<esc>", { desc = "Exit Insert Mode" }),
+
   map.set(
     "n",
     "<leader>ld",
@@ -56,15 +66,13 @@ return {
     { desc = "Paste over highlighted text w/o replacing register" }
   ),
 
-  map.set("n", "<C-d>", "<C-d>zz", { desc = "Jump down w/ view centering" }),
-  map.set("n", "<C-u", "<C-u>zz", { desc = "Jump up w/ view centering" }),
-
   map.set(
     "n",
     "<space><space>x",
     "<cmd>source %<cr>",
     { desc = "Source Document" }
   ),
+
   map.set("n", "<space>x", "<cmd>.lua<cr>", { desc = "Execute Lua Document" }),
   map.set(
     "v",
@@ -73,30 +81,6 @@ return {
     { desc = "Execute line of Lua Code" }
   ),
 
-  -- Compile a debug binary for C
-  map.set("n", "<leader>gcc", function()
-    require("config.custom").gcc()
-  end, { desc = "Compile debug binary" }),
-
-  -- Compile and run .zig file
-  map.set("n", "<leader>zig", function()
-    require("config.custom").zig_build()
-  end, { desc = "Build zig file" }),
-
-  -- Build Project
-  map.set("n", "<leader>make", function()
-    require("config.custom").make_project()
-  end, { desc = "Make Project" }),
-
-  -- Open terminal in new window w/ reusable buffer.
-  map.set({ "n", "t" }, "<leader>ot", function()
-    require("config.custom").toggleSplitTerm()
-  end, { desc = "T[o]ggle [t]erminal" }),
-
-  map.set("n", "<leader>lg", function()
-    require("config.custom").openLazyGit()
-  end, { desc = "Toggle [l]azy[g]it" }),
-
   map.set("n", "<Esc>", "<cmd>nohlsearch<CR>"),
   map.set(
     "n",
@@ -104,11 +88,27 @@ return {
     vim.diagnostic.setloclist,
     { desc = "Open [d]iagnostic quickfix list" }
   ),
-  map.set("t", ";;", "<C-\\><C-n>", { desc = "Exit Terminal Mode" }),
-  map.set("i", ";;", "<esc>", { desc = "Exit Insert Mode" }),
 
-  map.set("n", "<C-h>", "<C-w><C-h>", { desc = "Move focus left" }),
-  map.set("n", "<C-l>", "<C-w><C-l>", { desc = "Move focus right" }),
-  map.set("n", "<C-j>", "<C-w><C-j>", { desc = "Move focus down" }),
-  map.set("n", "<C-k>", "<C-w><C-k>", { desc = "Move focus up" }),
+  -- Open terminal in split window w/ reusable buffer.
+  map.set({ "n", "t" }, "<leader>ot", function()
+    require("config.custom").toggleSplitTerm()
+  end, { desc = "T[o]ggle [t]erminal" }),
+
+  -- Build Project(specific to my Tokyobash project)
+  map.set("n", "<leader>make", function()
+    require("config.custom").make_project()
+  end, { desc = "Make Project" }),
+
+  -- Compile a debug binary for C
+  map.set("n", "<leader>gcc", function()
+    require("config.custom").gcc()
+  end, { desc = "Compile debug binary" }),
+
+  map.set("n", "<leader>zig", function()
+    require("config.custom").zig_build()
+  end, { desc = "Build zig file" }),
+
+  map.set("n", "<leader>lg", function()
+    require("config.custom").openLazyGit()
+  end, { desc = "Open [l]azy[g]it('qq' to exit)" }),
 }
