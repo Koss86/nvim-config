@@ -26,7 +26,7 @@ return {
     "mason-org/mason-lspconfig.nvim",
     lazy = false,
     opts = {
-      ensure_installed = { "lua_ls", "clangd", "ols", "zls" },
+      ensure_installed = { "lua_ls", "clangd" },
     },
     dependencies = {
       "mason-org/mason.nvim",
@@ -162,8 +162,8 @@ return {
           end
 
           if
-              not client:supports_method("textDocument/willSaveWaitUntil")
-              and client:supports_method("textDocument/formatting")
+            not client:supports_method("textDocument/willSaveWaitUntil")
+            and client:supports_method("textDocument/formatting")
           then
             vim.api.nvim_create_autocmd("BufWritePre", {
               buffer = args.buf,
