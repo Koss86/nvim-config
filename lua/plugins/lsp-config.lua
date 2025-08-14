@@ -11,6 +11,8 @@ return {
 
   {
     "mason-org/mason.nvim",
+    lazy = true,
+    event = "VeryLazy",
     opts = {
       ui = {
         icons = {
@@ -25,6 +27,7 @@ return {
   {
     "mason-org/mason-lspconfig.nvim",
     lazy = false,
+    event = "VeryLazy",
     opts = {
       ensure_installed = { "lua_ls", "clangd" },
     },
@@ -35,6 +38,8 @@ return {
 
   {
     "neovim/nvim-lspconfig",
+    lazy = true,
+    event = "VeryLazy",
     dependencies = {
       {
         "folke/lazydev.nvim",
@@ -162,8 +167,8 @@ return {
           end
 
           if
-            not client:supports_method("textDocument/willSaveWaitUntil")
-            and client:supports_method("textDocument/formatting")
+              not client:supports_method("textDocument/willSaveWaitUntil")
+              and client:supports_method("textDocument/formatting")
           then
             vim.api.nvim_create_autocmd("BufWritePre", {
               buffer = args.buf,

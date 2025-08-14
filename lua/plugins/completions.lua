@@ -1,9 +1,13 @@
 return {
   {
     "hrsh7th/cmp-nvim-lsp",
+    lazy = true,
+    event = "VeryLazy",
   },
   {
     "L3MON4D3/LuaSnip",
+    lazy = true,
+    event = "VeryLazy",
     version = "v2.4.0",
     dependencies = {
       "saadparwaiz1/cmp_luasnip",
@@ -12,6 +16,8 @@ return {
   },
   {
     "hrsh7th/nvim-cmp",
+    lazy = true,
+    event = "VeryLazy",
 
     config = function()
       require("luasnip.loaders.from_vscode").lazy_load()

@@ -1,5 +1,7 @@
 return {
   "nvimtools/none-ls.nvim",
+  lazy = true,
+  event = "VeryLazy",
   config = function()
     require("null-ls").setup({
       sources = {

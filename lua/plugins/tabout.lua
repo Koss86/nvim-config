@@ -1,7 +1,8 @@
 return {
   {
     "abecodes/tabout.nvim",
-    lazy = false,
+    lazy = true,
+    even = "InsertEnter",
 
     config = function()
       require("tabout").setup({
