@@ -89,6 +89,20 @@ return {
     { desc = "Open [d]iagnostic quickfix list" }
   ),
 
+  vim.keymap.set(
+    "n",
+    "<leader>ut",
+    vim.cmd.UndotreeToggle,
+    { desc = "Toggle UndoTree" }
+  ),
+
+  vim.keymap.set(
+    "n",
+    "<leader>f",
+    "<cmd>Neotree toggle<cr>",
+    { desc = "Toggle NeoTree" }
+  ),
+
   -- Open terminal in split window w/ reusable buffer.
   map.set({ "n", "t" }, "<leader>ot", function()
     require("config.custom").toggleSplitTerm()
