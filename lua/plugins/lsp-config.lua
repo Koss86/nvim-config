@@ -14,7 +14,7 @@ return {
     lazy = true,
     event = "VeryLazy",
     opts = {
-      ensure_installed = { "lua_ls", "clangd" },
+      ensure_installed = { "lua_ls", "clangd", "clang_format", "bashls" },
       ui = {
         icons = {
           package_installed = "✓",
@@ -30,7 +30,7 @@ return {
     lazy = false,
     event = "VeryLazy",
     opts = {
-      ensure_installed = { "lua_ls", "clangd" },
+      -- ensure_installed = { "lua_ls", "clangd", "clang_format", "bashls" },
     },
     dependencies = {
       "mason-org/mason.nvim",
@@ -40,7 +40,7 @@ return {
   {
     "neovim/nvim-lspconfig",
     lazy = true,
-    event = "VeryLazy",
+    event = { "BufReadPre", "BufNewFile" },
     dependencies = {
       {
         "folke/lazydev.nvim",
@@ -57,51 +57,7 @@ return {
       local lsp = vim.lsp
 
       lsp.config("clangd", {
-        cmd = { "clangd" },
-        filetypes = { "c", "cpp", "objc", "objcpp", "cuda" },
-        root_markers = {
-          ".clangd",
-          ".clang-tidy",
-          ".clang-format",
-          "compile_commands.json",
-          "compile_flags.txt",
-          "configure.ac", -- AutoTools
-          ".git",
-        },
-        -- capabilities = {
-        --   textDocument = {
-        --     completion = {
-        --       editsNearCursor = true,
-        --     },
-        --   },
-        --   offsetEncoding = { "utf-8", "utf-16" },
-        -- },
-        -- ---@param client vim.lsp.Client
-        -- ---@param init_result ClangdInitializeResult
-        -- on_init = function(client, init_result)
-        --   if init_result.offsetEncoding then
-        --     client.offset_encoding = init_result.offsetEncoding
-        --   end
-        -- end,
-        -- on_attach = function(_, bufnr)
-        --   vim.api.nvim_buf_create_user_command(
-        --     bufnr,
-        --     "LspClangdSwitchSourceHeader",
-        --     function()
-        --       switch_source_header(bufnr)
-        --     end,
-        --     { desc = "Switch between source/header" }
-        --   )
-        --
-        --   vim.api.nvim_buf_create_user_command(
-        --     bufnr,
-        --     "LspClangdShowSymbolInfo",
-        --     function()
-        --       symbol_info()
-        --     end,
-        --     { desc = "Show symbol info" }
-        --   )
-        -- end,
+        capabilities = require("cmp_nvim_lsp").default_capabilities(),
       })
 
       lsp.config("lua_ls", {
@@ -168,8 +124,8 @@ return {
           end
 
           if
-            not client:supports_method("textDocument/willSaveWaitUntil")
-            and client:supports_method("textDocument/formatting")
+              not client:supports_method("textDocument/willSaveWaitUntil")
+              and client:supports_method("textDocument/formatting")
           then
             vim.api.nvim_create_autocmd("BufWritePre", {
               buffer = args.buf,
