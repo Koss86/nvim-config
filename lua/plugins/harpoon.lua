@@ -2,7 +2,7 @@ return {
   "ThePrimeagen/harpoon",
   branch = "harpoon2",
   lazy = true,
-  event = "VeryLazy",
+  event = { "BufReadPre", "BufNewFile" },
   config = function()
     require("harpoon"):setup({
       settings = {

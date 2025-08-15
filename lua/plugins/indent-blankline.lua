@@ -1,7 +1,7 @@
 return {
   "lukas-reineke/indent-blankline.nvim",
   lazy = true,
-  event = "VeryLazy",
+  event = { "BufReadPre", "BufNewFile" },
   main = "ibl",
   ---@module "ibl"
   ---@type ibl.config
