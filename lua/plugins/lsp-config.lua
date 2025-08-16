@@ -14,7 +14,10 @@ return {
     lazy = true,
     event = "VeryLazy",
     opts = {
-      ensure_installed = { "lua_ls", "clangd", "clang_format", "bashls" },
+      ensure_installed = {
+        "stylua",
+        "clang_format",
+      },
       ui = {
         icons = {
           package_installed = "✓",
@@ -27,10 +30,14 @@ return {
 
   {
     "mason-org/mason-lspconfig.nvim",
-    lazy = false,
+    lazy = true,
     event = "VeryLazy",
     opts = {
-      -- ensure_installed = { "lua_ls", "clangd", "clang_format", "bashls" },
+      ensure_installed = {
+        "lua_ls",
+        "clangd",
+        "bashls",
+      },
     },
     dependencies = {
       "mason-org/mason.nvim",
