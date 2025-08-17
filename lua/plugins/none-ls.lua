@@ -13,6 +13,7 @@ return {
           require("null-ls").builtins.formatting.clang_format.with({
             extra_args = { "--style=file" },
           }),
+          require("null-ls").builtins.formatting.shfmt,
           --require("null-ls").builtins.formatting.pyink,
         },
       })
