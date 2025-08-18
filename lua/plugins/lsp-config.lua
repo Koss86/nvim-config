@@ -91,33 +91,39 @@ return {
           },
         },
       })
-      lsp.config("ols", {
-        settings = {
-          capabilities = require("cmp_nvim_lsp").default_capabilities(),
-          init_options = {
-            checker_args = "-strict-style",
-            collections = {
-              { name = "shared", path = "$HOME/.local/Odin" },
-            },
-            enable_hover = true,
-            enable_snippets = true,
-            enable_semantic_tokens = true,
-            enable_document_symbols = true,
-            enable_inlay_hints = true,
-            enable_procedure_snippet = false,
-          },
-        },
-      })
 
       lsp.config("bashls", {
         capabilities = require("cmp_nvim_lsp").default_capabilities(),
       })
-      lsp.config("pylsp", {
+
+      lsp.config("markdown-oxide", {
         capabilities = require("cmp_nvim_lsp").default_capabilities(),
       })
-      lsp.config("jsonls", {
-        capabilities = require("cmp_nvim_lsp").default_capabilities(),
-      })
+
+      -- lsp.config("ols", {
+      --   settings = {
+      --     capabilities = require("cmp_nvim_lsp").default_capabilities(),
+      --     init_options = {
+      --       checker_args = "-strict-style",
+      --       collections = {
+      --         { name = "shared", path = "$HOME/.local/Odin" },
+      --       },
+      --       enable_hover = true,
+      --       enable_snippets = true,
+      --       enable_semantic_tokens = true,
+      --       enable_document_symbols = true,
+      --       enable_inlay_hints = true,
+      --       enable_procedure_snippet = false,
+      --     },
+      --   },
+      -- })
+      -- lsp.config("pylsp", {
+      --   capabilities = require("cmp_nvim_lsp").default_capabilities(),
+      -- })
+      -- lsp.config("jsonls", {
+      --   capabilities = require("cmp_nvim_lsp").default_capabilities(),
+      -- })
+
       vim.api.nvim_create_autocmd("LspAttach", {
         callback = function(args)
           local client = vim.lsp.get_client_by_id(args.data.client_id)
