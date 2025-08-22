@@ -6,6 +6,8 @@ return {
     event = { "BufReadPre", "BufNewFile" },
     dependencies = {
       "nvim-telescope/telescope-ui-select.nvim",
+      lazy = true,
+      event = { "BufReadPre", "BufNewFile" },
       config = function()
         require("telescope").setup({
           pickers = {

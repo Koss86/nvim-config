@@ -23,6 +23,8 @@ return {
     end,
     dependencies = {
       "nvim-treesitter/nvim-treesitter-context",
+      lazy = true,
+      event = { "BufReadPre", "BufNewFile" },
       config = function()
         require("treesitter-context").setup({
           enable = false, -- Enable this plugin (Can be enabled/disabled later via commands)
