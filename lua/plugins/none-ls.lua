@@ -1,7 +1,8 @@
 return {
   {
     "jay-babu/mason-null-ls.nvim",
-    event = { "BufReadPre", "BufNewFile" },
+    -- event = { "BufReadPre", "BufNewFile" },
+    event = "VeryLazy",
     dependencies = {
       "mason-org/mason.nvim",
       "nvimtools/none-ls.nvim",
@@ -18,7 +19,10 @@ return {
         },
       })
       require("mason-null-ls").setup({
-        ensure_installed = { "clang_format", "stylua" },
+        ensure_installed = {
+          "stylua",
+          "clang_format",
+        },
       })
     end,
   },

@@ -16,7 +16,11 @@ return {
     opts = {
       ensure_installed = {
         "stylua",
+        "lua_ls",
         "clang_format",
+        "clangd",
+        "bashls",
+        "marksman",
       },
       ui = {
         icons = {
@@ -37,6 +41,7 @@ return {
         "lua_ls",
         "clangd",
         "bashls",
+        "marksman",
       },
     },
     dependencies = {
