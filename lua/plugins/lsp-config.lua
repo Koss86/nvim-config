@@ -19,6 +19,7 @@ return {
         "lua_ls",
         "clang_format",
         "clangd",
+        "shfmt",
         "bashls",
         "marksman",
       },

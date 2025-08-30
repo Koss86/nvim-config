@@ -22,6 +22,7 @@ return {
         ensure_installed = {
           "stylua",
           "clang_format",
+          "shfmt",
         },
       })
     end,
