@@ -1,4 +1,3 @@
----@diagnostic disable: need-check-nil
 return {
   {
     vim.diagnostic.config({
@@ -8,31 +7,6 @@ return {
       update_in_insert = false,
     }),
   },
-
-  {
-    "mason-org/mason.nvim",
-    lazy = true,
-    event = "VeryLazy",
-    opts = {
-      ensure_installed = {
-        "stylua",
-        "lua_ls",
-        "clang_format",
-        "clangd",
-        "shfmt",
-        "bashls",
-        "marksman",
-      },
-      ui = {
-        icons = {
-          package_installed = "✓",
-          package_pending = "➜",
-          package_uninstalled = "✗",
-        },
-      },
-    },
-  },
-
   {
     "mason-org/mason-lspconfig.nvim",
     lazy = true,
@@ -47,9 +21,47 @@ return {
     },
     dependencies = {
       "mason-org/mason.nvim",
+      lazy = true,
+      event = "VeryLazy",
+      opts = {
+        ensure_installed = {
+          "stylua",
+          "clang_format",
+          "shfmt",
+        },
+        ui = {
+          icons = {
+            package_installed = "✓",
+            package_pending = "➜",
+            package_uninstalled = "✗",
+          },
+        },
+      },
     },
   },
-
+  {
+    "jay-babu/mason-null-ls.nvim",
+    lazy = true,
+    event = "VeryLazy",
+    dependencies = {
+      "nvimtools/none-ls.nvim",
+    },
+    config = function()
+      require("null-ls").setup({
+        sources = {
+          require("null-ls").builtins.formatting.stylua,
+          require("null-ls").builtins.formatting.clang_format.with({
+            extra_args = { "--style=file" },
+          }),
+          require("null-ls").builtins.formatting.shfmt,
+        },
+      })
+      require("mason-null-ls").setup({
+        automatic_installation = true,
+        ensure_installed = {},
+      })
+    end,
+  },
   {
     "neovim/nvim-lspconfig",
     lazy = true,
