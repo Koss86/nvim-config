@@ -7,7 +7,8 @@ return {
     dependencies = {
       "nvim-telescope/telescope-ui-select.nvim",
       lazy = true,
-      event = { "BufReadPre", "BufNewFile" },
+      -- event = { "BufReadPre", "BufNewFile" },
+      event = "VeryLazy",
       config = function()
         require("telescope").setup({
           pickers = {
@@ -54,9 +55,6 @@ return {
             cwd = vim.fn.stdpath("config"),
           })
         end)
-      end,
-
-      init = function()
         require("telescope").load_extension("ui-select")
       end,
     },

@@ -42,7 +42,8 @@ return {
   {
     "jay-babu/mason-null-ls.nvim",
     lazy = true,
-    event = "VeryLazy",
+    -- event = "VeryLazy",
+    event = { "BufReadPre", "BufNewFile" },
     dependencies = {
       "nvimtools/none-ls.nvim",
     },
