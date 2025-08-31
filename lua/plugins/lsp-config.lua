@@ -11,24 +11,22 @@ return {
     "mason-org/mason-lspconfig.nvim",
     lazy = true,
     event = "VeryLazy",
+
     opts = {
-      ensure_installed = {
+      ensure_installed = { -- auto install LSP's
         "lua_ls",
         "clangd",
         "bashls",
         "marksman",
       },
     },
+
     dependencies = {
       "mason-org/mason.nvim",
       lazy = true,
       event = "VeryLazy",
+
       opts = {
-        ensure_installed = {
-          "stylua",
-          "clang_format",
-          "shfmt",
-        },
         ui = {
           icons = {
             package_installed = "✓",
@@ -42,11 +40,14 @@ return {
   {
     "jay-babu/mason-null-ls.nvim",
     lazy = true,
-    -- event = "VeryLazy",
-    event = { "BufReadPre", "BufNewFile" },
+    event = "VeryLazy",
+
     dependencies = {
       "nvimtools/none-ls.nvim",
+      lazy = true,
+      event = "VeryLazy",
     },
+
     config = function()
       require("null-ls").setup({
         sources = {
@@ -57,8 +58,9 @@ return {
           require("null-ls").builtins.formatting.shfmt,
         },
       })
+
       require("mason-null-ls").setup({
-        automatic_installation = true,
+        automatic_installation = true, -- auto install formatters setup above
         ensure_installed = {},
       })
     end,
@@ -67,6 +69,7 @@ return {
     "neovim/nvim-lspconfig",
     lazy = true,
     event = { "BufReadPre", "BufNewFile" },
+
     dependencies = {
       {
         "folke/lazydev.nvim",
