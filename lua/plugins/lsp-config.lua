@@ -23,9 +23,6 @@ return {
 
     dependencies = {
       "mason-org/mason.nvim",
-      lazy = true,
-      event = "VeryLazy",
-
       opts = {
         ui = {
           icons = {
@@ -44,8 +41,6 @@ return {
 
     dependencies = {
       "nvimtools/none-ls.nvim",
-      lazy = true,
-      event = "VeryLazy",
     },
 
     config = function()

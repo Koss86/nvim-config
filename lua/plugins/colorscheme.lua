@@ -1,9 +1,8 @@
 return {
   {
     "folke/tokyonight.nvim",
-    -- lazy = true,
-    lazy = false,
     priority = 1000,
+    lazy = true,
     opts = {
       transparent = true,
       style = "night",
@@ -25,12 +24,13 @@ return {
       vim.cmd("colorscheme tokyonight")
     end,
   },
+
   {
     "catppuccin/nvim",
     name = "catpuccin",
     lazy = true,
-    -- lazy = false,
-    -- priority = 1000,
+    priority = 1000,
+
     config = function()
       require("catppuccin").setup({
         flavour = "mocha", -- latte, frappe, macchiato, mocha
@@ -91,8 +91,7 @@ return {
   {
     "rebelot/kanagawa.nvim",
     lazy = true,
-    -- lazy = false,
-    -- priority = 1000,
+    priority = 1000,
     config = function()
       require("kanagawa").setup({
         compile = false,  -- enable compiling the colorscheme

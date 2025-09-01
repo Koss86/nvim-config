@@ -3,14 +3,14 @@ return {
     "nvim-telescope/telescope.nvim",
     branch = "0.1.x",
     lazy = true,
-    event = { "BufReadPre", "BufNewFile" },
+    event = "VeryLazy",
+
     dependencies = {
       "nvim-telescope/telescope-ui-select.nvim",
-      lazy = true,
-      -- event = { "BufReadPre", "BufNewFile" },
-      event = "VeryLazy",
+
       config = function()
         require("telescope").setup({
+
           pickers = {
             find_files = {
               theme = "dropdown",
@@ -22,12 +22,11 @@ return {
               theme = "ivy",
             },
           },
+
           extensions = {
             ["ui-select"] = {
               -- themes: get_dropdown, get_cursor, get_ivy
-              require("telescope.themes").get_cursor({
-                -- more opts
-              }),
+              require("telescope.themes").get_cursor({}),
             },
           },
         })
@@ -55,6 +54,7 @@ return {
             cwd = vim.fn.stdpath("config"),
           })
         end)
+
         require("telescope").load_extension("ui-select")
       end,
     },
