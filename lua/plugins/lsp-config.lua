@@ -18,6 +18,7 @@ return {
         "clangd",
         "bashls",
         "marksman",
+        "gopls",
       },
     },
 
@@ -51,6 +52,7 @@ return {
             extra_args = { "--style=file" },
           }),
           require("null-ls").builtins.formatting.shfmt,
+          require("null-ls").builtins.formatting.gofumpt,
         },
       })
 
@@ -114,6 +116,10 @@ return {
       })
 
       lsp.config("marksman", {
+        capabilities = require("cmp_nvim_lsp").default_capabilities(),
+      })
+
+      lsp.config("gopls", {
         capabilities = require("cmp_nvim_lsp").default_capabilities(),
       })
 
