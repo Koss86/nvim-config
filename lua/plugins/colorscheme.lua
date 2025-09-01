@@ -27,7 +27,7 @@ return {
 
   {
     "catppuccin/nvim",
-    name = "catpuccin",
+    name = "catppuccin",
     lazy = true,
     priority = 1000,
 
