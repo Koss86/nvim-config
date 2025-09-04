@@ -58,7 +58,6 @@ return {
     "0vf}%",
     { desc = "high[l]ight function  [u]p" }
   ),
-
   map.set(
     { "n", "v" },
     "<leader>p",
@@ -80,7 +79,6 @@ return {
     "<cmd>lua<cr>",
     { desc = "Execute line of Lua Code" }
   ),
-
   map.set("n", "<Esc>", "<cmd>nohlsearch<CR>"),
   map.set(
     "n",
@@ -98,9 +96,9 @@ return {
 
   vim.keymap.set(
     "n",
-    "<leader>f",
+    "<leader>on",
     "<cmd>Neotree toggle<cr>",
-    { desc = "Toggle NeoTree" }
+    { desc = "T[o]ggle [n]eoTree" }
   ),
 
   -- Open terminal in split window w/ reusable buffer.
