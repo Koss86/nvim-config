@@ -3,8 +3,11 @@ return {
 
   -- LSP related
   map.set("n", "K", function()
-    vim.lsp.buf.hover({ border = "rounded" })
+    vim.lsp.buf.hover()
   end),
+  -- map.set("n", "K", function()
+  --   vim.lsp.buf.hover({ border = "rounded" })
+  -- end),
 
   map.set(
     "n",
@@ -12,16 +15,17 @@ return {
     "<C-w><C-]>",
     { desc = "[g]o to [d]efinition (opens in split)" }
   ),
-
-  map.set("n", "<leader>m", vim.lsp.buf.format, { desc = "For[m]at Document" }),
-  map.set("n", "<leader>rn", vim.lsp.buf.rename, { desc = "Rename" }),
-
   map.set(
     "n",
     "<leader>ca",
     vim.lsp.buf.code_action,
     { desc = "Display [c]ode [a]ctions" }
   ),
+  map.set("n", "<leader>m", vim.lsp.buf.format, { desc = "For[m]at Document" }),
+
+  -- map.set("n", "<leader>rn", vim.lsp.buf.rename, { desc = "Rename" }),
+ 
+  -- This will still format document if buf.format() won't work.
   -- map.set(
   --   "n",
   --   "<leader>m",
@@ -43,18 +47,19 @@ return {
   map.set("n", "<C-l>", "<C-w><C-l>", { desc = "Move focus right" }),
   map.set("n", "<C-j>", "<C-w><C-j>", { desc = "Move focus down" }),
   map.set("n", "<C-k>", "<C-w><C-k>", { desc = "Move focus up" }),
+
   map.set("t", ";;", "<C-\\><C-n>", { desc = "Exit Terminal Mode" }),
   map.set("i", ";;", "<esc>", { desc = "Exit Insert Mode" }),
 
   map.set(
     "n",
-    "<leader>ld",
+    "<leader>hd",
     "0vf{%",
     { desc = "high[l]ight function  [d]own" }
   ),
   map.set(
     "n",
-    "<leader>lu",
+    "<leader>hu",
     "0vf}%",
     { desc = "high[l]ight function  [u]p" }
   ),
@@ -98,7 +103,14 @@ return {
     "n",
     "<leader>on",
     "<cmd>Neotree toggle<cr>",
-    { desc = "T[o]ggle [n]eoTree" }
+    { desc = "T[o]ggle [n]eo-tree" }
+  ),
+
+  vim.keymap.set(
+    "n",
+    "<leader><leader>o",
+    "<CMD>Oil --float<CR>",
+    { desc = "Open parent directory" }
   ),
 
   -- Open terminal in split window w/ reusable buffer.
@@ -123,4 +135,5 @@ return {
   map.set("n", "<leader>lg", function()
     require("config.custom").openLazyGit()
   end, { desc = "Open [l]azy[g]it('qq' to exit)" }),
+
 }
