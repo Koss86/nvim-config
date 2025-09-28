@@ -34,14 +34,6 @@ vim.schedule(function()
   vim.o.clipboard = "unnamedplus"
 end)
 
-vim.diagnostic.config({
-  virtural_lines = true,
-  virtural_text = true,
-  signs = true,
-  underline = true,
-  update_in_insert = false,
-})
-
 -- Hightlight when yanking, taken from kickstart
 vim.api.nvim_create_autocmd("TextYankPost", {
   desc = "Highlight when yanking (copying) text",
