@@ -21,7 +21,7 @@ return {
     { desc = "Open [d]iagnostic quickfix list" }
   ),
 
-  -- map.set("n", "<leader>rn", vim.lsp.buf.rename, { desc = "Rename" }),
+  map.set("n", "<leader>rn", vim.lsp.buf.rename, { desc = "Rename" }),
 
   -- This will still format document if buf.format() won't work.
   -- map.set(
@@ -112,6 +112,55 @@ return {
     "<CMD>Oil --float<CR>",
     { desc = "Open parent directory" }
   ),
+
+  -- Harpoon keymaps
+  map.set("n", "<C-e>", function()
+    require("harpoon").ui:toggle_quick_menu(require("harpoon"):list())
+  end, { desc = "Harpoon Quick Menu" }),
+
+  map.set("n", "<leader>a", function()
+    require("harpoon"):list():add()
+  end, { desc = "Harpoon [a]dd current file" }),
+
+  map.set("n", "<leader>h", function()
+    require("harpoon"):list():select(1)
+  end, { desc = "Harpoon 1" }),
+
+  map.set("n", "<leader>n", function()
+    require("harpoon"):list():select(2)
+  end, { desc = "Harpoon 2" }),
+
+  map.set("n", "<leader>u", function()
+    require("harpoon"):list():select(3)
+  end, { desc = "Harpoon 3" }),
+
+  map.set("n", "<leader>y", function()
+    require("harpoon"):list():select(4)
+  end, { desc = "Harpoon 4" }),
+
+  map.set("n", "<leader><leader>h", function()
+    require("harpoon"):list():select(5)
+  end, { desc = "Harpoon 5" }),
+
+  map.set("n", "<leader><leader>n", function()
+    require("harpoon"):list():select(6)
+  end, { desc = "Harpoon 6" }),
+
+  map.set("n", "<leader><leader>u", function()
+    require("harpoon"):list():select(7)
+  end, { desc = "Harpoon 7" }),
+
+  map.set("n", "<leader><leader>y", function()
+    require("harpoon"):list():select(8)
+  end, { desc = "Harpoon 8" }),
+
+  map.set("n", "<C-S-P>", function()
+    require("harpoon"):list():prev()
+  end),
+
+  map.set("n", "<C-S-N>", function()
+    require("harpoon"):list():next()
+  end),
 
   -- Open terminal in split window w/ reusable buffer.
   map.set({ "n", "t" }, "<leader>ot", function()
