@@ -17,7 +17,13 @@ return {
     },
   }),
 
-  vim.lsp.enable({ "lua_ls", "clangd", "marksman", "gopls" }),
+  vim.lsp.enable({
+    "lua_ls",
+    "clangd",
+    "marksman",
+    "gopls",
+    "bashls",
+  }),
 
   vim.api.nvim_create_autocmd("LspAttach", {
     group = vim.api.nvim_create_augroup("enable_virtual_text", {}),
@@ -33,6 +39,7 @@ return {
     end,
   }),
 
+  -- Uncomment for native completions.
   -- vim.api.nvim_create_autocmd("LspAttach", {
   --   callback = function(ev)
   --     local client = vim.lsp.get_client_by_id(ev.data.client_id)
