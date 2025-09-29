@@ -1,30 +1,28 @@
 local map = vim.keymap
 return {
 
-  -- LSP related
-  map.set("n", "K", function()
-    vim.lsp.buf.hover()
-  end),
-  -- map.set("n", "K", function()
-  --   vim.lsp.buf.hover({ border = "rounded" })
-  -- end),
-
   map.set(
     "n",
     "<leader>gd",
     "<C-w><C-]>",
     { desc = "[g]o to [d]efinition (opens in split)" }
   ),
+  map.set("n", "<leader>m", vim.lsp.buf.format, { desc = "For[m]at Document" }),
   map.set(
     "n",
     "<leader>ca",
     vim.lsp.buf.code_action,
     { desc = "Display [c]ode [a]ctions" }
   ),
-  map.set("n", "<leader>m", vim.lsp.buf.format, { desc = "For[m]at Document" }),
+  map.set(
+    "n",
+    "<leader>d",
+    vim.diagnostic.setloclist,
+    { desc = "Open [d]iagnostic quickfix list" }
+  ),
 
   -- map.set("n", "<leader>rn", vim.lsp.buf.rename, { desc = "Rename" }),
- 
+
   -- This will still format document if buf.format() won't work.
   -- map.set(
   --   "n",
@@ -33,7 +31,6 @@ return {
   --   { desc = "For[m]at Document" }
   -- ),
 
-  -- Move line of text up or down
   map.set("n", "<A-j>", ":m .+1<cr>==", { desc = "Move line down" }),
   map.set("n", "<A-k>", ":m .-2<cr>==", { desc = "Move line up" }),
   map.set("i", "<A-j>", "<Esc>:m .+1<cr>==gi", { desc = "Move line down" }),
@@ -55,13 +52,13 @@ return {
     "n",
     "<leader>hd",
     "0vf{%",
-    { desc = "high[l]ight function  [d]own" }
+    { desc = "[h]ighlight function  [d]own" }
   ),
   map.set(
     "n",
     "<leader>hu",
     "0vf}%",
-    { desc = "high[l]ight function  [u]p" }
+    { desc = "[h]ighlight function  [u]p" }
   ),
   map.set(
     { "n", "v" },
@@ -85,28 +82,22 @@ return {
     { desc = "Execute line of Lua Code" }
   ),
   map.set("n", "<Esc>", "<cmd>nohlsearch<CR>"),
-  map.set(
-    "n",
-    "<leader>d",
-    vim.diagnostic.setloclist,
-    { desc = "Open [d]iagnostic quickfix list" }
-  ),
 
-  vim.keymap.set(
+  map.set(
     "n",
     "<leader>ut",
     vim.cmd.UndotreeToggle,
     { desc = "Toggle UndoTree" }
   ),
 
-  vim.keymap.set(
+  map.set(
     "n",
     "<leader>on",
     "<cmd>Neotree toggle<cr>",
     { desc = "T[o]ggle [n]eo-tree" }
   ),
 
-  vim.keymap.set(
+  map.set(
     "n",
     "<leader><leader>o",
     "<CMD>Oil --float<CR>",
@@ -135,5 +126,4 @@ return {
   map.set("n", "<leader>lg", function()
     require("config.custom").openLazyGit()
   end, { desc = "Open [l]azy[g]it('qq' to exit)" }),
-
 }

@@ -1,4 +1,3 @@
----@diagnostic disable: param-type-mismatch
 return {
 
   "lewis6991/gitsigns.nvim",
@@ -9,8 +8,6 @@ return {
     require("gitsigns").setup({
 
       on_attach = function(bufnr)
-        local gitsigns = require("gitsigns")
-
         local function map(mode, l, r, opts)
           opts = opts or {}
           opts.buffer = bufnr
@@ -22,7 +19,7 @@ return {
           if vim.wo.diff then
             vim.cmd.normal({ "]c", bang = true })
           else
-            gitsigns.nav_hunk("next")
+            require("gitsigns").nav_hunk("next")
           end
         end)
 
@@ -30,7 +27,7 @@ return {
           if vim.wo.diff then
             vim.cmd.normal({ "[c", bang = true })
           else
-            gitsigns.nav_hunk("prev")
+            require("gitsigns").nav_hunk("prev")
           end
         end)
 
@@ -45,10 +42,15 @@ return {
         vim.keymap.set(
           "n",
           "<leader>vd",
-          gitsigns.preview_hunk_inline,
+          require("gitsigns").preview_hunk_inline,
           { desc = "[v]iew [d]iff Inline" }
         )
-        map("n", "<leader>rh", gitsigns.reset_hunk, { desc = "[r]eset [h]unk" })
+        map(
+          "n",
+          "<leader>rh",
+          require("gitsigns").reset_hunk,
+          { desc = "[r]eset [h]unk" }
+        )
       end,
     })
   end,
