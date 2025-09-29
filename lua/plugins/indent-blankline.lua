@@ -5,5 +5,6 @@ return {
   main = "ibl",
   opts = {
     debounce = 100,
+    indent = { tab_char = "┃" },
   },
 }

@@ -24,7 +24,7 @@ vim.o.ignorecase = true
 vim.o.smartcase = true
 vim.o.signcolumn = "yes"
 vim.o.list = true
-vim.opt.listchars = { tab = "┃ ", trail = "·", nbsp = "␣" }
+vim.opt.listchars = { tab = "  ", trail = "·", nbsp = "␣" }
 vim.o.scrolloff = 20
 vim.o.inccommand = "split"
 vim.o.confirm = true
