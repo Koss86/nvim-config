@@ -48,15 +48,6 @@ return {
   map.set("t", ";;", "<C-\\><C-n>", { desc = "Exit Terminal Mode" }),
   map.set("i", ";;", "<esc>", { desc = "Exit Insert Mode" }),
 
-  map.set("n", "<leader>ff", require("telescope.builtin").find_files),
-  map.set("n", "<leader>fg", require("telescope.builtin").live_grep),
-  map.set("n", "<leader>fh", require("telescope.builtin").help_tags),
-  map.set("n", "<leader>en", function()
-    require("telescope.builtin").find_files({
-      cwd = vim.fn.stdpath("config"),
-    })
-  end),
-
   map.set(
     "n",
     "<leader>hd",
