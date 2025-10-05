@@ -3,6 +3,9 @@ return {
   branch = "harpoon2",
   lazy = true,
   event = "VeryLazy",
+  dependencies = {
+    "letieu/harpoon-lualine",
+  },
   config = function()
     require("harpoon"):setup({
       settings = {
