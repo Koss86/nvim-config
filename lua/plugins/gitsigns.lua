@@ -32,19 +32,20 @@ return {
         end)
 
         -- Diff Views
-        vim.keymap.set(
-          "n",
-          "<leader>dt",
-          require("gitsigns").diffthis,
-          { desc = "[d]iff [t]his File" }
-        )
+        map("n", "<leader>dt", function()
+          require("gitsigns").diffthis()
+          vim.defer_fn(function()
+            vim.cmd("wincmd h")
+          end, 10) -- 10ms delay, try adjusting if not switching focus.
+        end, { desc = "[d]iff [t]his File" })
 
-        vim.keymap.set(
+        map(
           "n",
           "<leader>vd",
           require("gitsigns").preview_hunk_inline,
           { desc = "[v]iew [d]iff Inline" }
         )
+
         map(
           "n",
           "<leader>rh",
