@@ -163,14 +163,10 @@ return {
     require("config.custom").make_project()
   end, { desc = "Make Project" }),
 
-  -- Compile a debug binary for C
-  map.set("n", "<leader>gcc", function()
-    require("config.custom").gcc()
-  end, { desc = "Compile debug binary" }),
-
-  map.set("n", "<leader>zig", function()
-    require("config.custom").zig_build()
-  end, { desc = "Build zig file" }),
+  -- Compile a binary
+  map.set("n", "<leader>co", function()
+    require("config.custom").compile()
+  end, { desc = "[c][o]mpile file" }),
 
   map.set("n", "<leader>lg", function()
     require("config.custom").openLazyGit()
