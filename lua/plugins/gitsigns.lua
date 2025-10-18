@@ -32,7 +32,7 @@ return {
         end)
 
         -- Diff Views
-        map("n", "<leader>dt", function()
+        map("n", "dt", function()
           require("gitsigns").diffthis()
           vim.defer_fn(function()
             vim.cmd("wincmd h")
@@ -41,14 +41,14 @@ return {
 
         map(
           "n",
-          "<leader>vd",
+          "vd",
           require("gitsigns").preview_hunk_inline,
           { desc = "[v]iew [d]iff Inline" }
         )
 
         map(
           "n",
-          "<leader>rh",
+          "rh",
           require("gitsigns").reset_hunk,
           { desc = "[r]eset [h]unk" }
         )

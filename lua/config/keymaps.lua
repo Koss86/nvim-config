@@ -3,25 +3,17 @@ return {
 
   map.set(
     "n",
-    "<leader>gd",
+    "grd",
     "<C-w><C-]>",
-    { desc = "[g]o to [d]efinition (opens in split)" }
+    { desc = "Go to Definition (opens in split)" }
   ),
   map.set("n", "<leader>m", vim.lsp.buf.format, { desc = "For[m]at Document" }),
-  map.set(
-    "n",
-    "<leader>ca",
-    vim.lsp.buf.code_action,
-    { desc = "Display [c]ode [a]ctions" }
-  ),
   map.set(
     "n",
     "<leader>d",
     vim.diagnostic.setloclist,
     { desc = "Open [d]iagnostic quickfix list" }
   ),
-
-  map.set("n", "<leader>rn", vim.lsp.buf.rename, { desc = "Rename" }),
 
   -- This will still format document if buf.format() won't work.
   -- map.set(
@@ -111,7 +103,9 @@ return {
 
   map.set("n", "<leader>a", function()
     require("harpoon"):list():add()
-  end, { desc = "Harpoon [a]dd current file" }),
+  end, {
+    desc = "Harpoon [a]dd current file",
+  }),
 
   map.set("n", "<leader>h", function()
     require("harpoon"):list():select(1)
