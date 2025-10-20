@@ -1,21 +1,31 @@
+local config = vim.lsp.config
 return {
-
-  vim.lsp.config("lua_ls", {
-    settings = {
-      runtime = {
-        version = "LuaJIT",
-      },
-      diagnostics = {
-        globals = { "vim" },
-      },
-      workspace = {
-        library = vim.api.nvim_get_runtime_file("", true),
-      },
-      telemetry = {
-        enable = false,
-      },
+  config("lua_ls", {
+    diagnostics = {
+      globals = { "vim" },
+    },
+    runtime = {
+      version = "LuaJIT",
+    },
+    workspace = {
+      library = vim.api.nvim_get_runtime_file("", true),
+    },
+    telemetry = {
+      enable = false,
     },
   }),
+  config("clangd", {
+    textDocument = {
+      completion = {
+        editsNearCursor = true,
+      },
+    },
+    offsetEncoding = "utf-16",
+  }),
+  config("marksman", {}),
+  config("gopls", {}),
+  config("bashls", {}),
+  config("ols", {}),
 
   vim.lsp.enable({
     "lua_ls",
@@ -23,20 +33,16 @@ return {
     "marksman",
     "gopls",
     "bashls",
+    "ols",
   }),
 
-  vim.api.nvim_create_autocmd("LspAttach", {
-    group = vim.api.nvim_create_augroup("enable_virtual_text", {}),
-    callback = function()
-      vim.diagnostic.config({
-        virtual_lines = true,   -- New line style
-        virtual_text = false,   -- Original/Regular
-        signs = true,
-        underline = false,      -- Disabled for line style, to make more clear
-        update_in_insert = false,
-        severity_sort = false,
-      })
-    end,
+  vim.diagnostic.config({
+    virtual_lines = true, -- New line style
+    virtual_text = false, -- Original/Regular
+    signs = true,
+    underline = false, -- Disabled for line style, to make more clear
+    update_in_insert = false,
+    severity_sort = false,
   }),
 
   -- Uncomment for native completions.
