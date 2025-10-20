@@ -1,31 +1,42 @@
 local config = vim.lsp.config
+local capabilities = require("cmp_nvim_lsp").default_capabilities()
+capabilities.offsetEncoding = { "utf-16" }
 return {
   config("lua_ls", {
-    diagnostics = {
-      globals = { "vim" },
-    },
-    runtime = {
-      version = "LuaJIT",
-    },
-    workspace = {
-      library = vim.api.nvim_get_runtime_file("", true),
-    },
-    telemetry = {
-      enable = false,
+    capabilities = capabilities,
+    settings = {
+      Lua = {
+        telemetry = {
+          enable = false,
+        },
+      },
+      diagnostics = {
+        globals = { "vim" },
+      },
+      runtime = {
+        version = "LuaJIT",
+      },
+      workspace = {
+        library = vim.api.nvim_get_runtime_file("", true),
+      },
     },
   }),
   config("clangd", {
-    textDocument = {
-      completion = {
-        editsNearCursor = true,
-      },
-    },
-    offsetEncoding = "utf-16",
+    capabilities = capabilities,
   }),
-  config("marksman", {}),
-  config("gopls", {}),
-  config("bashls", {}),
-  config("ols", {}),
+
+  config("marksman", {
+    capabilities = capabilities,
+  }),
+  config("gopls", {
+    capabilities = capabilities,
+  }),
+  config("bashls", {
+    capabilities = capabilities,
+  }),
+  config("ols", {
+    capabilities = capabilities,
+  }),
 
   vim.lsp.enable({
     "lua_ls",
