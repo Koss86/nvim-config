@@ -4,27 +4,23 @@ capabilities.offsetEncoding = { "utf-16" }
 return {
   config("lua_ls", {
     capabilities = capabilities,
-    settings = {
-      Lua = {
-        telemetry = {
-          enable = false,
-        },
-      },
-      diagnostics = {
-        globals = { "vim" },
-      },
-      runtime = {
-        version = "LuaJIT",
-      },
-      workspace = {
-        library = vim.api.nvim_get_runtime_file("", true),
-      },
+    telemetry = {
+      enable = false,
+    },
+    diagnostics = {
+      globals = { "vim" },
+    },
+    runtime = {
+      version = "LuaJIT",
+    },
+    workspace = {
+      library = vim.api.nvim_get_runtime_file("", true),
     },
   }),
+
   config("clangd", {
     capabilities = capabilities,
   }),
-
   config("marksman", {
     capabilities = capabilities,
   }),
