@@ -2,6 +2,16 @@ local config = vim.lsp.config
 local capabilities = require("cmp_nvim_lsp").default_capabilities()
 capabilities.offsetEncoding = { "utf-16" }
 return {
+
+  vim.lsp.enable({
+    "lua_ls",
+    "clangd",
+    "marksman",
+    "gopls",
+    "bashls",
+    "ols",
+  }),
+
   config("lua_ls", {
     capabilities = capabilities,
     settings = {
@@ -36,15 +46,6 @@ return {
   }),
   config("ols", {
     capabilities = capabilities,
-  }),
-
-  vim.lsp.enable({
-    "lua_ls",
-    "clangd",
-    "marksman",
-    "gopls",
-    "bashls",
-    "ols",
   }),
 
   vim.diagnostic.config({
