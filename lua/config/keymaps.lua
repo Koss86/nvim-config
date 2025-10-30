@@ -148,9 +148,9 @@ return {
   end),
 
   -- Open terminal in split window w/ reusable buffer.
-  map.set({ "n", "t" }, "<leader>ot", function()
+  map.set({ "n", "t" }, "<leader>tt", function()
     require("config.custom").toggleSplitTerm()
-  end, { desc = "T[o]ggle [t]erminal" }),
+  end, { desc = "[T]oggle [t]erminal" }),
 
   -- Build Project(specific to my Tokyobash project)
   map.set("n", "<leader>make", function()

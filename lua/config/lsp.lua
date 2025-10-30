@@ -4,14 +4,24 @@ capabilities.offsetEncoding = { "utf-16" }
 return {
 
   vim.lsp.enable({
-    "lua_ls",
-    "clangd",
-    "marksman",
-    "gopls",
     "bashls",
+    "clangd",
+    "gopls",
+    "lua_ls",
+    "marksman",
     "ols",
+    "pyright",
   }),
 
+  config("bashls", {
+    capabilities = capabilities,
+  }),
+  config("clangd", {
+    capabilities = capabilities,
+  }),
+  config("gopls", {
+    capabilities = capabilities,
+  }),
   config("lua_ls", {
     capabilities = capabilities,
     settings = {
@@ -31,20 +41,13 @@ return {
       },
     },
   }),
-
-  config("clangd", {
-    capabilities = capabilities,
-  }),
   config("marksman", {
     capabilities = capabilities,
   }),
-  config("gopls", {
-    capabilities = capabilities,
-  }),
-  config("bashls", {
-    capabilities = capabilities,
-  }),
   config("ols", {
+    capabilities = capabilities,
+  }),
+  config("pyright", {
     capabilities = capabilities,
   }),
 
@@ -52,7 +55,7 @@ return {
     virtual_lines = true, -- New line style
     virtual_text = false, -- Original/Regular
     signs = true,
-    underline = false, -- Disabled for line style, to make more clear
+    underline = false,    -- Disabled for line style, to make more clear
     update_in_insert = false,
     severity_sort = false,
   }),
