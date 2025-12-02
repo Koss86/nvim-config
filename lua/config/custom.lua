@@ -41,12 +41,16 @@ end
 function M.compile()
   local file_path = vim.fn.expand("%:p")
   local ft = vim.bo.filetype
+  local bin
   local cmd
 
   if ft == "c" then
-    cmd = string.format("gcc -g -Wall -I. %s", file_path)
+    bin = vim.fn.expand("%:t")
+    bin = string.sub(bin, 1, -3)
+    cmd = string.format("gcc -g -Wall -I. -o %s %s", bin, file_path)
   elseif ft == "odin" then
-    cmd = string.format("odin build %s -file -debug", file_path)
+    local dir_path = vim.fn.expand("%:h")
+    cmd = string.format("odin run %s -debug", dir_path)
   elseif ft == "zig" then
     cmd = string.format("zig build-exe %s", file_path)
   elseif ft == "go" then
@@ -70,6 +74,7 @@ function M.compile()
 
   local ok, job_id =
     pcall(vim.api.nvim_buf_get_var, M.term_bufnum, "terminal_job_id")
+
   if ok and job_id then
     vim.fn.chansend(job_id, "\nclear\n")
     vim.fn.chansend(job_id, cmd .. "\n")
@@ -77,10 +82,15 @@ function M.compile()
     vim.cmd("9split | terminal")
     M.term_winid = vim.api.nvim_get_current_win()
     M.term_bufnum = vim.api.nvim_get_current_buf()
-    local new_job_id = vim.b.terminal_job_id
-    vim.fn.chansend(new_job_id, "\nclear\n")
-    vim.fn.chansend(new_job_id, cmd .. "\n")
+    job_id = vim.b.terminal_job_id
+    vim.fn.chansend(job_id, "\nclear\n")
+    vim.fn.chansend(job_id, cmd .. "\n")
   end
+
+    if ft == "c" then
+        vim.fn.chansend(job_id, "./" .. bin .. "\n")
+    end
+
   vim.defer_fn(function()
     vim.fn.feedkeys("i")
   end, 10)
