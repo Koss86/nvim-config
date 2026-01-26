@@ -2,7 +2,6 @@ return {
   {
     "nvim-telescope/telescope.nvim",
     branch = "0.1.x",
-    lazy = true,
     event = "VeryLazy",
     dependencies = {
       "nvim-telescope/telescope-ui-select.nvim",

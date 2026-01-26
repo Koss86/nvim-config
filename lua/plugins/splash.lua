@@ -1,7 +1,5 @@
 return {
   "goolord/alpha-nvim",
-  lazy = false,
-
   config = function()
     require("alpha.themes.startify").section.header.val = {
       "                                                                       ",

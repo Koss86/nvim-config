@@ -1,6 +1,7 @@
 return {
   {
     "mason-org/mason.nvim",
+    event = "VeryLazy",
     opts = {
       ui = {
         icons = {
@@ -13,7 +14,6 @@ return {
   },
   {
     "neovim/nvim-lspconfig",
-    lazy = true,
     event = { "BufReadPre", "BufNewFile" },
   },
 }

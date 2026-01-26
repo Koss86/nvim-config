@@ -1,12 +1,10 @@
 return {
   {
     "hrsh7th/cmp-nvim-lsp",
-    lazy = true,
     event = { "BufReadPre", "BufNewFile" },
   },
   {
     "L3MON4D3/LuaSnip",
-    lazy = true,
     event = { "BufReadPre", "BufNewFile" },
     version = "v2.4.0",
     dependencies = {
@@ -16,7 +14,6 @@ return {
   },
   {
     "hrsh7th/nvim-cmp",
-    lazy = true,
     event = { "BufReadPre", "BufNewFile" },
 
     config = function()

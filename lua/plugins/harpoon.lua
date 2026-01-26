@@ -1,7 +1,6 @@
 return {
   "ThePrimeagen/harpoon",
   branch = "harpoon2",
-  lazy = true,
   event = "VeryLazy",
   dependencies = {
     "letieu/harpoon-lualine",
