@@ -1,1 +1,11 @@
-/home/koss/repos/dotfiles/editorconfig
+[*]
+tab_width = 4
+indent_size = 4
+end_of_line = lf
+indent_style = space
+max_line_length = 80
+insert_final_newline = true
+
+[*.lua]
+tab_width = 2
+indent_size = 2
