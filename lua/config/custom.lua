@@ -32,6 +32,7 @@ function M.toggleSplitTerm()
     M.term_winid = vim.api.nvim_get_current_win()
     M.term_bufnum = vim.api.nvim_get_current_buf()
   end
+
   vim.defer_fn(function()
     vim.fn.feedkeys("i")
   end, 10)
@@ -55,6 +56,8 @@ function M.compile()
     cmd = string.format("zig build-exe %s", file_path)
   elseif ft == "go" then
     cmd = string.format("go build %s", file_path)
+  elseif ft == "sh" then
+    cmd = string.format("bash %s", file_path)
   else
     print("Filetype not supported:", ft)
     return
@@ -87,9 +90,9 @@ function M.compile()
     vim.fn.chansend(job_id, cmd .. "\n")
   end
 
-    if ft == "c" then
-        vim.fn.chansend(job_id, "./" .. bin .. "\n")
-    end
+  if ft == "c" then
+    vim.fn.chansend(job_id, "./" .. bin .. "\n")
+  end
 
   vim.defer_fn(function()
     vim.fn.feedkeys("i")
@@ -99,6 +102,7 @@ end
 -- Build Project(specific to my Tokyobash project)
 function M.make_project()
   local cmd = "make install prefix=$HOME/.local"
+
   if not (is_term_active(M.term_bufnum)) then
     vim.cmd("9split | terminal")
     M.term_winid = vim.api.nvim_get_current_win()
@@ -113,6 +117,7 @@ function M.make_project()
 
   local ok, job_id =
     pcall(vim.api.nvim_buf_get_var, M.term_bufnum, "terminal_job_id")
+
   if ok and job_id then
     vim.fn.chansend(job_id, "\nclear\n")
     vim.fn.chansend(job_id, cmd .. "\n")
@@ -124,6 +129,7 @@ function M.make_project()
     vim.fn.chansend(new_job_id, "\nclear\n")
     vim.fn.chansend(new_job_id, cmd .. "\n")
   end
+
   vim.defer_fn(function()
     vim.fn.feedkeys("i")
   end, 10)
