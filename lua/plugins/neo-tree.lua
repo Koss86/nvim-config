@@ -1,6 +1,5 @@
 return {
   "nvim-neo-tree/neo-tree.nvim",
-  event = "VeryLazy",
   branch = "v3.x",
   dependencies = {
     "nvim-lua/plenary.nvim",
@@ -12,5 +11,8 @@ return {
       width = 23,
       height = 15,
     },
+  },
+  keys = {
+    { "<leader>on", "<cmd>Neotree toggle<cr>", desc = "T[o]ggle [n]eotree" },
   },
 }

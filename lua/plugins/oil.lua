@@ -1,7 +1,9 @@
 return {
   "stevearc/oil.nvim",
-  event = "VeryLazy",
   config = function()
     require("oil").setup()
   end,
+  keys = {
+    { "<leader><leader>o", "<CMD>Oil --float<CR>" },
+  },
 }

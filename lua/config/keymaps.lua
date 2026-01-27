@@ -46,12 +46,14 @@ return {
     "0vf{%",
     { desc = "[h]ighlight function  [d]own" }
   ),
+
   map.set(
     "n",
     "<leader>hu",
     "0vf}%",
     { desc = "[h]ighlight function  [u]p" }
   ),
+
   map.set(
     { "n", "v" },
     "<leader>p",
@@ -67,85 +69,15 @@ return {
   ),
 
   map.set("n", "<space>x", "<cmd>.lua<cr>", { desc = "Execute Lua Document" }),
+
   map.set(
     "v",
     "<space>x",
     "<cmd>lua<cr>",
     { desc = "Execute line of Lua Code" }
   ),
+
   map.set("n", "<Esc>", "<cmd>nohlsearch<CR>"),
-
-  map.set(
-    "n",
-    "<leader>ut",
-    vim.cmd.UndotreeToggle,
-    { desc = "Toggle UndoTree" }
-  ),
-
-  map.set(
-    "n",
-    "<leader>on",
-    "<cmd>Neotree toggle<cr>",
-    { desc = "T[o]ggle [n]eo-tree" }
-  ),
-
-  map.set(
-    "n",
-    "<leader><leader>o",
-    "<CMD>Oil --float<CR>",
-    { desc = "Open parent directory" }
-  ),
-
-  -- Harpoon keymaps
-  map.set("n", "<C-e>", function()
-    require("harpoon").ui:toggle_quick_menu(require("harpoon"):list())
-  end, { desc = "Harpoon Quick Menu" }),
-
-  map.set("n", "<leader>a", function()
-    require("harpoon"):list():add()
-  end, {
-    desc = "Harpoon [a]dd current file",
-  }),
-
-  map.set("n", "<leader>h", function()
-    require("harpoon"):list():select(1)
-  end, { desc = "Harpoon 1" }),
-
-  map.set("n", "<leader>n", function()
-    require("harpoon"):list():select(2)
-  end, { desc = "Harpoon 2" }),
-
-  map.set("n", "<leader>u", function()
-    require("harpoon"):list():select(3)
-  end, { desc = "Harpoon 3" }),
-
-  map.set("n", "<leader>y", function()
-    require("harpoon"):list():select(4)
-  end, { desc = "Harpoon 4" }),
-
-  map.set("n", "<leader><leader>h", function()
-    require("harpoon"):list():select(5)
-  end, { desc = "Harpoon 5" }),
-
-  map.set("n", "<leader><leader>n", function()
-    require("harpoon"):list():select(6)
-  end, { desc = "Harpoon 6" }),
-
-  map.set("n", "<leader><leader>u", function()
-    require("harpoon"):list():select(7)
-  end, { desc = "Harpoon 7" }),
-
-  map.set("n", "<leader><leader>y", function()
-    require("harpoon"):list():select(8)
-  end, { desc = "Harpoon 8" }),
-
-  map.set("n", "<C-S-P>", function()
-    require("harpoon"):list():prev()
-  end),
-
-  map.set("n", "<C-S-N>", function()
-    require("harpoon"):list():next()
-  end),
 
   -- Open terminal in split window w/ reusable buffer.
   map.set({ "n", "t" }, "<leader>tt", function()
@@ -157,7 +89,6 @@ return {
     require("config.custom").make_project()
   end, { desc = "Make Project" }),
 
-  -- Compile a binary
   map.set("n", "<leader>co", function()
     require("config.custom").compile()
   end, { desc = "[c][o]mpile file" }),
