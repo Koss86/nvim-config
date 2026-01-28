@@ -52,7 +52,7 @@ return {
           "%=",
           {
             "harpoon2",
-            icon = "󰀱 ",
+            icon = "󰀱",
             indicators = {
               "h",
               "n",
