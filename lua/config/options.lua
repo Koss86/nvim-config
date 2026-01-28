@@ -29,6 +29,8 @@ vim.o.scrolloff = 20
 vim.o.inccommand = "split"
 vim.o.confirm = true
 vim.o.winborder = "rounded"
+vim.o.foldlevel = 99
+vim.o.foldlevelstart = 99
 
 vim.schedule(function()
   vim.o.clipboard = "unnamedplus"
