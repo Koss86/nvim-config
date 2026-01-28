@@ -50,8 +50,8 @@ function M.compile()
     bin = string.sub(bin, 1, -3)
     cmd = string.format("gcc -g -Wall -I. -o %s %s", bin, file_path)
   elseif ft == "odin" then
-    local dir_path = vim.fn.expand("%:h")
-    cmd = string.format("odin run %s -debug", dir_path)
+    local file_dir = vim.fn.expand("%:h")
+    cmd = string.format("odin run %s -debug", file_dir)
   elseif ft == "zig" then
     cmd = string.format("zig build-exe %s", file_path)
   elseif ft == "go" then
