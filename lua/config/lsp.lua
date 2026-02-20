@@ -13,15 +13,9 @@ return {
     "pyright",
   }),
 
-  config("bashls", {
-    capabilities = capabilities,
-  }),
-  config("clangd", {
-    capabilities = capabilities,
-  }),
-  config("gopls", {
-    capabilities = capabilities,
-  }),
+  config("bashls", { capabilities = capabilities }),
+  config("clangd", { capabilities = capabilities }),
+  config("gopls", { capabilities = capabilities }),
   config("lua_ls", {
     capabilities = capabilities,
     settings = {
@@ -41,15 +35,11 @@ return {
       },
     },
   }),
-  config("marksman", {
-    capabilities = capabilities,
-  }),
-  config("ols", {
-    capabilities = capabilities,
-  }),
-  config("pyright", {
-    capabilities = capabilities,
-  }),
+  config("marksman", { capabilities = capabilities }),
+  config("ols", { capabilities = capabilities, }),
+  config("pyright", { capabilities = capabilities, }),
+  config("termux-language-server", { capabilities = capabilities, }),
+  config("zls", { capabilities = capabilities, }),
 
   vim.diagnostic.config({
     virtual_lines = true, -- New line style
