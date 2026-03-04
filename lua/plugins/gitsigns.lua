@@ -25,7 +25,7 @@ return {
     },
     -- Diff views
     {
-      "dt",
+      "<leader>dt",
       function()
         require("gitsigns").diffthis()
         vim.defer_fn(function()
@@ -35,7 +35,7 @@ return {
       desc = "[d]iff [t]his File",
     },
     {
-      "vd",
+      "<leader>vd",
       function()
         require("gitsigns").preview_hunk_inline()
       end,
@@ -43,7 +43,7 @@ return {
     },
     -- Reset
     {
-      "rh",
+      "<leader>rh",
       function()
         require("gitsigns").reset_hunk()
       end,
