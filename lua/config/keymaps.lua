@@ -7,6 +7,11 @@ return {
   map.set("n", "<leader>d", vim.diagnostic.setloclist,
     { desc = "Open [d]iagnostic quickfix list" }),
 
+  map.set("n", "<leader><leader>m", function()
+    vim.cmd(":LspStop")
+    vim.cmd(":LspStart")
+  end, { desc = "Restart Lsp" }),
+
   -- This will still format document if buf.format() won't work.
   -- map.set("n", "<leader>m", "gg=G<C-o>zz", { desc = "For[m]at Document" }),
 
