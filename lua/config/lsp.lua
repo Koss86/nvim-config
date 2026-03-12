@@ -1,45 +1,41 @@
 local config = vim.lsp.config
 local capabilities = require("cmp_nvim_lsp").default_capabilities()
-capabilities.offsetEncoding = { "utf-16" }
+capabilities.offsetEncoding = { "utf-8" }
 return {
 
   vim.lsp.enable({
     "bashls",
     "clangd",
-    "gopls",
     "lua_ls",
     "marksman",
     "ols",
-    "pyright",
+    "typos_lsp",
   }),
 
   config("bashls", { capabilities = capabilities }),
   config("clangd", { capabilities = capabilities }),
-  config("gopls", { capabilities = capabilities }),
   config("lua_ls", {
     capabilities = capabilities,
     settings = {
       Lua = {
-        telemetry = {
-          enable = false,
-        },
-        diagnostics = {
-          globals = { "vim" },
-        },
-        runtime = {
-          version = "LuaJIT",
-        },
-        workspace = {
-          library = vim.api.nvim_get_runtime_file("", true),
-        },
+        diagnostics = { globals = { "vim" } },
+        runtime = { version = "LuaJIT" },
+        telemetry = { enable = false },
+        workspace = { library = vim.api.nvim_get_runtime_file("", true) },
       },
     },
   }),
   config("marksman", { capabilities = capabilities }),
-  config("ols", { capabilities = capabilities, }),
-  config("pyright", { capabilities = capabilities, }),
-  config("termux-language-server", { capabilities = capabilities, }),
-  config("zls", { capabilities = capabilities, }),
+  config("ols", { capabilities = capabilities }),
+  config("typos_lsp", {
+    capabilities = capabilities,
+    cmd = { "typos-lsp" },
+    cmd_env = { RUST_LOG = "error" },
+    init_options = {
+      config = vim.fn.stdpath("config") .. "/typos.toml",
+      diagnosticSeverity = "Info",
+    },
+  }),
 
   vim.diagnostic.config({
     virtual_lines = true, -- New line style
