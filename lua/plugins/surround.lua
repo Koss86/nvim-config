@@ -48,36 +48,34 @@ example, `cs'"` means "change the surrounding single quotes to double quotes".
   ]]
 return {
   "kylechui/nvim-surround",
-  version = "^3.0.0",
+  version = "^4.0.0",
   event = { "BufReadPre", "BufNewFile" },
-  config = function()
-    require("nvim-surround").setup({
-      surrounds = {
-        ["("] = {
-          add = { "(", ")" },
-        },
-        [")"] = {
-          add = { "( ", " )" },
-        },
-        ["{"] = {
-          add = { "{", "}" },
-        },
-        ["}"] = {
-          add = { "{ ", " }" },
-        },
-        ["<"] = {
-          add = { "<", ">" },
-        },
-        [">"] = {
-          add = { "< ", " >" },
-        },
-        ["["] = {
-          add = { "[", "]" },
-        },
-        ["]"] = {
-          add = { "[ ", " ]" },
-        },
+  opts = {
+    surrounds = {
+      ["("] = {
+        add = { "(", ")" },
       },
-    })
-  end,
+      [")"] = {
+        add = { "( ", " )" },
+      },
+      ["{"] = {
+        add = { "{", "}" },
+      },
+      ["}"] = {
+        add = { "{ ", " }" },
+      },
+      ["<"] = {
+        add = { "<", ">" },
+      },
+      [">"] = {
+        add = { "< ", " >" },
+      },
+      ["["] = {
+        add = { "[", "]" },
+      },
+      ["]"] = {
+        add = { "[ ", " ]" },
+      },
+    },
+  }
 }
