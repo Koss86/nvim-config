@@ -1,10 +1,11 @@
 return {
   {
     "nvim-telescope/telescope.nvim",
-    branch = "0.1.x",
+    version = "*",
     event = "VeryLazy",
     dependencies = {
       "nvim-telescope/telescope-ui-select.nvim",
+      { 'nvim-telescope/telescope-fzf-native.nvim', build = 'make' },
     },
 
     config = function()
@@ -45,7 +46,6 @@ return {
           { desc = " [e]dit [c]onfig files" }
         )
       end)
-
     end,
   },
 }

@@ -8,7 +8,7 @@ return {
     { desc = "Open [d]iagnostic quickfix list" }),
 
   map.set("n", "<leader><leader>m", function()
-    vim.cmd(":LspRestart")
+    vim.cmd(":lsp restart")
   end, { desc = "Restart Lsp" }),
 
   -- This will still format document if buf.format() won't work.
