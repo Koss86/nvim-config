@@ -1,6 +1,7 @@
 return {
   "goolord/alpha-nvim",
   config = function()
+    require("alpha.themes.startify").file_icons.provider = "devicons"
     require("alpha.themes.startify").section.header.val = {
       "                                                                       ",
       "                                                                       ",
