@@ -24,6 +24,7 @@ extend-ignore-identifiers-re = []
 extend-ignore-words-re = []
 
 [default.extend-words]
+enew = "enew"
 noice = "noice"
 indx = "indx"
 onfig = "onfig"
