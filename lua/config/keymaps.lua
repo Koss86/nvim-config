@@ -8,7 +8,7 @@ return {
     { desc = "Open [d]iagnostic quickfix list" }),
 
   map.set("n", "<leader><leader>m", function()
-    vim.cmd(":lsp restart")
+    vim.cmd("lsp restart")
   end, { desc = "Restart Lsp" }),
 
   -- This will still format document if buf.format() won't work.
@@ -39,7 +39,7 @@ return {
   map.set("t", ";;", "<C-\\><C-n>", { desc = "Exit Terminal Mode" }),
   map.set({ "i", "v" }, ";;", "<esc>", { desc = "Exit Insert/Visual Mode" }),
   map.set("n", "<leader>hd", "0vf{%", { desc = "[h]ighlight function  [d]own" }),
-  map.set("n", "<leader>hu", "0Vf}%", { desc = "[h]ighlight function  [u]p" }),
+  map.set("n", "<leader>hu", "V%", { desc = "[h]ighlight function  [u]p" }),
   map.set("n", "<space>x", "<cmd>.lua<cr>", { desc = "Execute Lua Document" }),
   map.set("v", "<space>x", "<cmd>lua<cr>", { desc = "Execute line of Lua Code" }),
   map.set({ "n", "v" }, "<leader>p", '"_dP',
