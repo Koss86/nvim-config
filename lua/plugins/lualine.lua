@@ -1,44 +1,16 @@
 return {
   "nvim-lualine/lualine.nvim",
   event = "VeryLazy",
-
   config = function()
     require("lualine").setup({
       options = {
-        icons_enabled = true,
-        theme = "auto",
         section_separators = { left = "", right = "" },
         component_separators = { left = "", right = "" },
         -- section_separators = { left = "", right = "" },
-        -- component_separators = { left = "", right = "" },
         -- section_separators = { left = "", right = "" },
+        -- component_separators = { left = "", right = "" },
+        -- component_separators = { left = "", right = "" },
         -- component_separators = { left = "", right = "" },
-        disabled_filetypes = {
-          statusline = {},
-          winbar = {},
-        },
-        ignore_focus = {},
-        always_divide_middle = true,
-        always_show_tabline = true,
-        globalstatus = false,
-        refresh = {
-          statusline = 1000,
-          tabline = 1000,
-          winbar = 1000,
-          refresh_time = 16, -- ~60fps
-          events = {
-            "WinEnter",
-            "BufEnter",
-            "BufWritePost",
-            "SessionLoadPost",
-            "FileChangedShellPost",
-            "VimResized",
-            "Filetype",
-            "CursorMoved",
-            "CursorMovedI",
-            "ModeChanged",
-          },
-        },
       },
       sections = {
         lualine_a = { "location" },
@@ -47,32 +19,13 @@ return {
           {
             require("noice").api.statusline.mode.get,
             cond = require("noice").api.statusline.mode.has,
-            color = { fg = "#ff9e64" },
           },
           "%=",
           {
             "harpoon2",
             icon = "󰀱",
-            indicators = {
-              "h",
-              "n",
-              "u",
-              "y",
-              "h²",
-              "n²",
-              "u²",
-              "y²",
-            },
-            active_indicators = {
-              "[h]",
-              "[n]",
-              "[u]",
-              "[y]",
-              "[h²]",
-              "[n²]",
-              "[u²]",
-              "[y²]",
-            },
+            indicators = { "h", "n", "u", "y", "h²", "n²", "u²", "y²", },
+            active_indicators = { "[h]", "[n]", "[u]", "[y]", "[h²]", "[n²]", "[u²]", "[y²]", },
             color_active = { fg = "#00ff00" },
             _separator = " ",
             no_harpoon = "Harpoon not loaded",
