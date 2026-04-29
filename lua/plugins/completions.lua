@@ -1,24 +1,18 @@
 return {
   {
-    "hrsh7th/cmp-nvim-lsp",
-    event = { "BufReadPre", "BufNewFile" },
-  },
-  {
     "L3MON4D3/LuaSnip",
     event = { "BufReadPre", "BufNewFile" },
-    version = "v2.4.1",
-    dependencies = {
-      "saadparwaiz1/cmp_luasnip",
-      "rafamadriz/friendly-snippets",
-    },
+    version = "v2.*",
+    build = "make install_jsregexp",
   },
   {
     "hrsh7th/nvim-cmp",
     event = { "BufReadPre", "BufNewFile" },
-
+    dependencies = {
+      "hrsh7th/cmp-nvim-lsp",
+    },
     config = function()
       require("luasnip.loaders.from_vscode").lazy_load()
-
       require("cmp").setup({
         snippet = {
           expand = function(args)
@@ -34,7 +28,7 @@ return {
           ["<C-f>"] = require("cmp").mapping.scroll_docs(4),
           ["<C-Space>"] = require("cmp").mapping.complete(),
           ["<C-a>"] = require("cmp").mapping.abort(),
-          ["<CR>"] = require("cmp").mapping.confirm({ select = false }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
+          ["<CR>"] = require("cmp").mapping.confirm({ select = false }),
         }),
         sources = require("cmp").config.sources({
           { name = "nvim_lsp" },
