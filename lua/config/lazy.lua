@@ -30,4 +30,9 @@ require("lazy").setup({
     { import = "plugins" },
   },
   checker = { enabled = true },
+  keys = {
+    vim.keymap.set("n", "<leader>L", function()
+      vim.cmd("La")
+    end, { desc = "Open Lazy" }),
+  },
 })

@@ -17,6 +17,11 @@ return {
           },
         },
       },
+      keys = {
+        vim.keymap.set("n", "<leader>M", function()
+          vim.cmd("Mason")
+        end, { desc = "Open Mason" }),
+      },
     },
   },
 }
