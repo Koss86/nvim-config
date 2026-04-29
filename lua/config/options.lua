@@ -10,8 +10,7 @@ vim.o.tabstop = 4
 vim.o.softtabstop = 4
 vim.o.shiftwidth = 4
 vim.g.mapleader = " "
-vim.opt["guicursor"] =
-  "n-v:block-blinkon0,i-t-c-ci:block-blinkwait150-blinkon250-blinkoff250"
+vim.opt["guicursor"] = "n-v:block-blinkon0,i-t-c-ci:block-blinkwait150-blinkon250-blinkoff250"
 vim.o.updatetime = 250
 vim.o.timeoutlen = 300
 vim.o.splitbelow = true

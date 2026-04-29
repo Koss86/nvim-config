@@ -24,8 +24,8 @@ return {
           {
             "harpoon2",
             icon = "󰀱",
-            indicators = { "h", "n", "u", "y", "h²", "n²", "u²", "y²", },
-            active_indicators = { "[h]", "[n]", "[u]", "[y]", "[h²]", "[n²]", "[u²]", "[y²]", },
+            indicators = { "h", "n", "u", "y", "h²", "n²", "u²", "y²" },
+            active_indicators = { "[h]", "[n]", "[u]", "[y]", "[h²]", "[n²]", "[u²]", "[y²]" },
             color_active = { fg = "#00ff00" },
             _separator = " ",
             no_harpoon = "Harpoon not loaded",

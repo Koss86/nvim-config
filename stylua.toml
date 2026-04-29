@@ -1,11 +1,10 @@
-syntax = "LuaJIT"
+syntax = "All"
 indent_width = 2
 column_width = 100
 line_endings = "Unix"
 indent_type = "Spaces"
 call_parentheses = "Always"
-quote_style = "AutoPreferDouble"
-alignment = "TrailingComments"
+quote_style = "ForceDouble"
 collapse_simple_statement = "Never"
 space_after_function_names = "Never"
 

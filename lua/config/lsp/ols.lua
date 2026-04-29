@@ -3,6 +3,6 @@ return {
   filetypes = { "odin" },
   root_dir = function(bufnr, on_dir)
     local fname = vim.api.nvim_buf_get_name(bufnr)
-    on_dir(require "config.lsp.util".root_pattern("ols.json", ".git", "*.odin")(fname))
+    on_dir(require("config.lsp.util").root_pattern("ols.json", ".git", "*.odin")(fname))
   end,
 }

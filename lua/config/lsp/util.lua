@@ -1,7 +1,7 @@
 -- Borrowed from nvim-lspconfig
 
 local validate = vim.validate
-local nvim_eleven = vim.fn.has "nvim-0.11" == 1
+local nvim_eleven = vim.fn.has("nvim-0.11") == 1
 
 local M = { path = {} }
 
@@ -13,12 +13,14 @@ end
 ---
 --- Also works with zipfile:/tarfile: buffers (via `strip_archive_subpath`).
 function M.root_pattern(...)
-  local patterns = M.tbl_flatten { ... }
+  local patterns = M.tbl_flatten({ ... })
   return function(startpath)
     startpath = M.strip_archive_subpath(startpath)
     for _, pattern in ipairs(patterns) do
       local match = M.search_ancestors(startpath, function(path)
-        for _, p in ipairs(vim.fn.glob(table.concat({ escape_wildcards(path), pattern }, "/"), true, true)) do
+        for _, p in
+          ipairs(vim.fn.glob(table.concat({ escape_wildcards(path), pattern }, "/"), true, true))
+        do
           if vim.uv.fs_stat(p) then
             return path
           end

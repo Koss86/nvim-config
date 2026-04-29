@@ -15,14 +15,14 @@ return {
     "zls",
   }),
 
-  config("bashls", require "config.lsp.bashls"),
-  config("clangd", require "config.lsp.clangd"),
-  config("lua_ls", require "config.lsp.lua_ls"),
-  config("marksman", require "config.lsp.marksman"),
-  config("ols", require "config.lsp.ols"),
-  config("tombi", require "config.lsp.tombi"),
-  config("typos_lsp", require "config.lsp.typos_lsp"),
-  config("zls", require "config.lsp.zls"),
+  config("bashls", require("config.lsp.bashls")),
+  config("clangd", require("config.lsp.clangd")),
+  config("lua_ls", require("config.lsp.lua_ls")),
+  config("marksman", require("config.lsp.marksman")),
+  config("ols", require("config.lsp.ols")),
+  config("tombi", require("config.lsp.tombi")),
+  config("typos_lsp", require("config.lsp.typos_lsp")),
+  config("zls", require("config.lsp.zls")),
 
   diag_config({
     virtual_lines = true,
