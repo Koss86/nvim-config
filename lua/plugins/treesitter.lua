@@ -4,5 +4,8 @@ return {
   build = ":TSUpdate",
   dependencies = {
     "nvim-treesitter/nvim-treesitter-context",
+    opts = {
+      separator = "─",
+    },
   },
 }
